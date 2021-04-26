@@ -39,31 +39,27 @@ integer index;
 // IF wrReg == readSelect1 => readData1 = wrData 
 // IF wrReg == readSelect2 => readData2 = wrData
 // 
-	always @ (posedge clk) begin
-		if (rst == 1) begin
-          for(index = 0; index < 32; index = index + 1) 
+always @ (posedge clk) begin
+	if (rst == 1) begin
+		for(index = 0; index < 32; index = index + 1) 
 			RF[index] <= 32'b0;
-        end 
-        else
-          if(writeEnable) 
-            begin
-         //     $display("Write to %d:%d ", wrReg,wrData);
-              RF[wrReg] <= wrData;
-        	end
-      
-    end
+	end 
+	else if(writeEnable) begin
+ //     $display("Write to %d:%d ", wrReg,wrData);
+		RF[wrReg] <= wrData;
+	end
+end
 	 
-    always @ (posedge clk) begin
-      if(wrReg == readSelect1)
-        readData1 <= (writeEnable ? wrData : RF[readSelect1]);
-      if(wrReg == readSelect2)
-        readData2 <= (writeEnable ? wrData : RF[readSelect2]);
+always @ (posedge clk) begin
+	if(wrReg == readSelect1)
+        	readData1 <= (writeEnable ? wrData : RF[readSelect1]);
+      	if(wrReg == readSelect2)
+        	readData2 <= (writeEnable ? wrData : RF[readSelect2]);
 		if (!writeEnable) begin
 			readData1 <= ( readSelect1 == 0 ) ? 0 : RF[readSelect1];
 			// $display("PRG:Read to %d:%d ", readSelect1,readData1);
 			readData2 <= ( readSelect2 == 0 ) ? 0 : RF[readSelect2];
-      	//$display("PRG:Read to %d:%d ", readSelect1,readData1);
-      end
-	end
-
+      			//$display("PRG:Read to %d:%d ", readSelect1,readData1);
+      		end
+end
 endmodule  

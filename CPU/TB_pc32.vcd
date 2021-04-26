@@ -1,0 +1,918 @@
+$date
+   Sat Apr 24 16:43:42 2021
+$end
+$version
+  P.20131013
+$end
+$timescale
+  1ps
+$end
+$scope module TB_pc $end
+$var wire 1 ! PC [31] $end
+$var wire 1 " PC [30] $end
+$var wire 1 # PC [29] $end
+$var wire 1 $ PC [28] $end
+$var wire 1 % PC [27] $end
+$var wire 1 & PC [26] $end
+$var wire 1 ' PC [25] $end
+$var wire 1 ( PC [24] $end
+$var wire 1 ) PC [23] $end
+$var wire 1 * PC [22] $end
+$var wire 1 + PC [21] $end
+$var wire 1 , PC [20] $end
+$var wire 1 - PC [19] $end
+$var wire 1 . PC [18] $end
+$var wire 1 / PC [17] $end
+$var wire 1 0 PC [16] $end
+$var wire 1 1 PC [15] $end
+$var wire 1 2 PC [14] $end
+$var wire 1 3 PC [13] $end
+$var wire 1 4 PC [12] $end
+$var wire 1 5 PC [11] $end
+$var wire 1 6 PC [10] $end
+$var wire 1 7 PC [9] $end
+$var wire 1 8 PC [8] $end
+$var wire 1 9 PC [7] $end
+$var wire 1 : PC [6] $end
+$var wire 1 ; PC [5] $end
+$var wire 1 < PC [4] $end
+$var wire 1 = PC [3] $end
+$var wire 1 > PC [2] $end
+$var wire 1 ? PC [1] $end
+$var wire 1 @ PC [0] $end
+$var reg 1 A clk $end
+$var reg 1 B reset $end
+$var reg 1 C is_branch $end
+$var reg 32 D newPC [31:0] $end
+$scope module uut $end
+$var wire 1 E clk $end
+$var wire 1 F reset $end
+$var wire 1 G is_branch $end
+$var wire 1 H newPC [31] $end
+$var wire 1 I newPC [30] $end
+$var wire 1 J newPC [29] $end
+$var wire 1 K newPC [28] $end
+$var wire 1 L newPC [27] $end
+$var wire 1 M newPC [26] $end
+$var wire 1 N newPC [25] $end
+$var wire 1 O newPC [24] $end
+$var wire 1 P newPC [23] $end
+$var wire 1 Q newPC [22] $end
+$var wire 1 R newPC [21] $end
+$var wire 1 S newPC [20] $end
+$var wire 1 T newPC [19] $end
+$var wire 1 U newPC [18] $end
+$var wire 1 V newPC [17] $end
+$var wire 1 W newPC [16] $end
+$var wire 1 X newPC [15] $end
+$var wire 1 Y newPC [14] $end
+$var wire 1 Z newPC [13] $end
+$var wire 1 [ newPC [12] $end
+$var wire 1 \ newPC [11] $end
+$var wire 1 ] newPC [10] $end
+$var wire 1 ^ newPC [9] $end
+$var wire 1 _ newPC [8] $end
+$var wire 1 ` newPC [7] $end
+$var wire 1 a newPC [6] $end
+$var wire 1 b newPC [5] $end
+$var wire 1 c newPC [4] $end
+$var wire 1 d newPC [3] $end
+$var wire 1 e newPC [2] $end
+$var wire 1 f newPC [1] $end
+$var wire 1 g newPC [0] $end
+$var wire 1 h PC_wire [31] $end
+$var wire 1 i PC_wire [30] $end
+$var wire 1 j PC_wire [29] $end
+$var wire 1 k PC_wire [28] $end
+$var wire 1 l PC_wire [27] $end
+$var wire 1 m PC_wire [26] $end
+$var wire 1 n PC_wire [25] $end
+$var wire 1 o PC_wire [24] $end
+$var wire 1 p PC_wire [23] $end
+$var wire 1 q PC_wire [22] $end
+$var wire 1 r PC_wire [21] $end
+$var wire 1 s PC_wire [20] $end
+$var wire 1 t PC_wire [19] $end
+$var wire 1 u PC_wire [18] $end
+$var wire 1 v PC_wire [17] $end
+$var wire 1 w PC_wire [16] $end
+$var wire 1 x PC_wire [15] $end
+$var wire 1 y PC_wire [14] $end
+$var wire 1 z PC_wire [13] $end
+$var wire 1 { PC_wire [12] $end
+$var wire 1 | PC_wire [11] $end
+$var wire 1 } PC_wire [10] $end
+$var wire 1 ~ PC_wire [9] $end
+$var wire 1 !! PC_wire [8] $end
+$var wire 1 "! PC_wire [7] $end
+$var wire 1 #! PC_wire [6] $end
+$var wire 1 $! PC_wire [5] $end
+$var wire 1 %! PC_wire [4] $end
+$var wire 1 &! PC_wire [3] $end
+$var wire 1 '! PC_wire [2] $end
+$var wire 1 (! PC_wire [1] $end
+$var wire 1 )! PC_wire [0] $end
+$var reg 32 *! PC [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#100000
+$dumpvars
+x8
+x9
+0E
+0F
+x@
+x?
+x>
+x=
+x<
+x;
+x:
+0G
+0g
+0f
+0e
+0d
+0c
+0b
+0a
+0`
+0_
+0^
+0]
+0\
+0[
+0Z
+0Y
+0X
+0W
+0V
+0U
+0T
+0S
+0R
+0Q
+0P
+0O
+0N
+0A
+0B
+0C
+b0 D
+x7
+x6
+x5
+x4
+x3
+x2
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+x(
+x'
+x&
+x%
+x$
+x#
+x"
+x!
+bx *!
+x)!
+x(!
+x'!
+x&!
+x%!
+x$!
+x#!
+x"!
+x!!
+x~
+x}
+x|
+x{
+xz
+xy
+xx
+xw
+xv
+xu
+xt
+xs
+xr
+xq
+xp
+xo
+xn
+xm
+xl
+xk
+xj
+xi
+xh
+0M
+0L
+0K
+0J
+0I
+0H
+$end
+#105000
+1F
+1B
+#110000
+08
+09
+1E
+0@
+0?
+0>
+0=
+0<
+0;
+0:
+1A
+07
+06
+05
+04
+03
+02
+01
+00
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+0&
+0%
+0$
+0#
+0"
+0!
+b0 *!
+0)!
+0(!
+1'!
+0&!
+0%!
+0$!
+0#!
+0"!
+0!!
+0~
+0}
+0|
+0{
+0z
+0y
+0x
+0w
+0v
+0u
+0t
+0s
+0r
+0q
+0p
+0o
+0n
+0m
+0l
+0k
+0j
+0i
+0h
+#115000
+0F
+0B
+#120000
+0E
+0A
+#130000
+1E
+1>
+1A
+b100 *!
+0'!
+1&!
+#140000
+0E
+0A
+#150000
+1E
+0>
+1=
+1A
+b1000 *!
+1'!
+#160000
+0E
+0A
+#170000
+1E
+1>
+1A
+b1100 *!
+0'!
+0&!
+1%!
+#180000
+0E
+0A
+#190000
+1E
+0>
+0=
+1<
+1A
+b10000 *!
+1'!
+#200000
+0E
+0A
+#210000
+1E
+1>
+1A
+b10100 *!
+0'!
+1&!
+#220000
+0E
+0A
+#230000
+1E
+0>
+1=
+1A
+b11000 *!
+1'!
+#240000
+0E
+0A
+#250000
+1E
+1>
+1A
+b11100 *!
+0'!
+0&!
+0%!
+1$!
+#260000
+0E
+0A
+#270000
+1E
+0>
+0=
+0<
+1;
+1A
+b100000 *!
+1'!
+#280000
+0E
+0A
+#290000
+1E
+1>
+1A
+b100100 *!
+0'!
+1&!
+#300000
+0E
+0A
+#310000
+1E
+0>
+1=
+1A
+b101000 *!
+1'!
+#320000
+0E
+1G
+1f
+1d
+1b
+1`
+1^
+1\
+1Z
+1X
+1V
+1T
+1R
+1P
+1N
+0A
+1C
+b10101010101010101010101010101010 D
+1(!
+0'!
+1"!
+1~
+1|
+1z
+1x
+1v
+1t
+1r
+1p
+1n
+1l
+1j
+1h
+1L
+1J
+1H
+#330000
+19
+1E
+1?
+1A
+17
+15
+13
+11
+1/
+1-
+1+
+1)
+1'
+1%
+1#
+1!
+b10101010101010101010101010101010 *!
+#340000
+0E
+0G
+0A
+0C
+1'!
+#350000
+1E
+1>
+1A
+b10101010101010101010101010101110 *!
+0'!
+0&!
+1%!
+#360000
+0E
+0A
+#370000
+1E
+0>
+0=
+1<
+1A
+b10101010101010101010101010110010 *!
+1'!
+#380000
+0E
+0A
+#390000
+1E
+1>
+1A
+b10101010101010101010101010110110 *!
+0'!
+1&!
+#400000
+0E
+0A
+#410000
+1E
+0>
+1=
+1A
+b10101010101010101010101010111010 *!
+1'!
+#420000
+0E
+0A
+#430000
+1E
+1>
+1A
+b10101010101010101010101010111110 *!
+0'!
+0&!
+0%!
+0$!
+1#!
+#440000
+0E
+0A
+#450000
+1E
+0>
+0=
+0<
+0;
+1:
+1A
+b10101010101010101010101011000010 *!
+1'!
+#460000
+0E
+0A
+#470000
+1E
+1>
+1A
+b10101010101010101010101011000110 *!
+0'!
+1&!
+#480000
+0E
+0A
+#490000
+1E
+0>
+1=
+1A
+b10101010101010101010101011001010 *!
+1'!
+#500000
+0E
+0A
+#510000
+1E
+1>
+1A
+b10101010101010101010101011001110 *!
+0'!
+0&!
+1%!
+#520000
+0E
+0A
+#530000
+1E
+0>
+0=
+1<
+1A
+b10101010101010101010101011010010 *!
+1'!
+#540000
+0E
+1G
+1g
+0f
+1e
+0d
+1c
+0b
+1a
+0`
+1_
+0^
+1]
+0\
+1[
+0Z
+1Y
+0X
+1W
+0V
+1U
+0T
+1S
+0R
+1Q
+0P
+1O
+0N
+0A
+1C
+b1010101010101010101010101010101 D
+1)!
+0(!
+0"!
+1!!
+0~
+1}
+0|
+1{
+0z
+1y
+0x
+1w
+0v
+1u
+0t
+1s
+0r
+1q
+0p
+1o
+0n
+1m
+0l
+1k
+0j
+1i
+0h
+1M
+0L
+1K
+0J
+1I
+0H
+#550000
+18
+09
+1E
+1@
+0?
+1>
+1A
+07
+16
+05
+14
+03
+12
+01
+10
+0/
+1.
+0-
+1,
+0+
+1*
+0)
+1(
+0'
+1&
+0%
+1$
+0#
+1"
+0!
+b1010101010101010101010101010101 *!
+#560000
+0E
+0G
+0A
+0C
+0'!
+1&!
+#570000
+1E
+0>
+1=
+1A
+b1010101010101010101010101011001 *!
+1'!
+#580000
+0E
+0A
+#590000
+1E
+1>
+1A
+b1010101010101010101010101011101 *!
+0'!
+0&!
+0%!
+1$!
+#600000
+0E
+0A
+#610000
+1E
+0>
+0=
+0<
+1;
+1A
+b1010101010101010101010101100001 *!
+1'!
+#620000
+0E
+0A
+#630000
+1E
+1>
+1A
+b1010101010101010101010101100101 *!
+0'!
+1&!
+#640000
+0E
+0A
+#650000
+1E
+0>
+1=
+1A
+b1010101010101010101010101101001 *!
+1'!
+#660000
+0E
+0A
+#670000
+1E
+1>
+1A
+b1010101010101010101010101101101 *!
+0'!
+0&!
+1%!
+#680000
+0E
+0A
+#690000
+1E
+0>
+0=
+1<
+1A
+b1010101010101010101010101110001 *!
+1'!
+#700000
+0E
+0A
+#710000
+1E
+1>
+1A
+b1010101010101010101010101110101 *!
+0'!
+1&!
+#720000
+0E
+0A
+#730000
+1E
+0>
+1=
+1A
+b1010101010101010101010101111001 *!
+1'!
+#740000
+0E
+0A
+#750000
+1E
+1>
+1A
+b1010101010101010101010101111101 *!
+0'!
+0&!
+0%!
+0$!
+0#!
+1"!
+#760000
+0E
+0A
+#770000
+19
+1E
+0>
+0=
+0<
+0;
+0:
+1A
+b1010101010101010101010110000001 *!
+1'!
+#780000
+0E
+0A
+#790000
+1E
+1>
+1A
+b1010101010101010101010110000101 *!
+0'!
+1&!
+#800000
+0E
+0A
+#810000
+1E
+0>
+1=
+1A
+b1010101010101010101010110001001 *!
+1'!
+#820000
+0E
+0A
+#830000
+1E
+1>
+1A
+b1010101010101010101010110001101 *!
+0'!
+0&!
+1%!
+#840000
+0E
+0A
+#850000
+1E
+0>
+0=
+1<
+1A
+b1010101010101010101010110010001 *!
+1'!
+#860000
+0E
+0A
+#870000
+1E
+1>
+1A
+b1010101010101010101010110010101 *!
+0'!
+1&!
+#880000
+0E
+0A
+#890000
+1E
+0>
+1=
+1A
+b1010101010101010101010110011001 *!
+1'!
+#900000
+0E
+0A
+#910000
+1E
+1>
+1A
+b1010101010101010101010110011101 *!
+0'!
+0&!
+0%!
+1$!
+#920000
+0E
+0A
+#930000
+1E
+0>
+0=
+0<
+1;
+1A
+b1010101010101010101010110100001 *!
+1'!
+#940000
+0E
+0A
+#950000
+1E
+1>
+1A
+b1010101010101010101010110100101 *!
+0'!
+1&!
+#960000
+0E
+0A
+#970000
+1E
+0>
+1=
+1A
+b1010101010101010101010110101001 *!
+1'!
+#980000
+0E
+0A
+#990000
+1E
+1>
+1A
+b1010101010101010101010110101101 *!
+0'!
+0&!
+1%!
+#1000000
+0E
+0A
