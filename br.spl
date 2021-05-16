@@ -1,0 +1,10 @@
+[Inputs]
+aluEQ
+aluLT
+=BRUOP[2:0]=
+[Outputs]
+doBranch
+[BiDir]
+[ATTRIBUTES]
+VeriModel br
+

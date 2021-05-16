@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2021-04-29T07:00:33</DateModified>
+  <DateModified>2021-05-16T07:28:50</DateModified>
   <ModuleName>TB_Reg</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>/home/ise/Documents/CPU/Verilog-CPU/iseconfig/TB_Reg.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/ise/Documents/CPU/Verilog-CPU</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>/home/ise/Documents/CPU/Verilog-CPU/</ImplementationReportsDirectory>
   <DateInitialized>2021-04-29T07:00:33</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

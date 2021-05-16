@@ -1,0 +1,13 @@
+[Inputs]
+=LSUOP[2:0]=
+=inData_load[31:0]=
+=inData_store[31:0]=
+=inAddr[31:0]=
+[Outputs]
+=outData_load[31:0]=
+=outData_store[31:0]=
+=outAddr[15:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel lsu
+

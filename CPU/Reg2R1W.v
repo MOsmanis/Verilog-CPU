@@ -2,7 +2,7 @@
 
 
 ////////////////////////////////////////////////////////////////////////////////
-// Company: Latvijas Universitāte
+// Company: Latvijas Universitte
 // Engineer: Andris Eihmanis
 //
 // Create Date:   12:32:04 04/01/2021
@@ -53,13 +53,13 @@ end
 always @ (posedge clk) begin
 	if(wrReg == readSelect1)
         	readData1 <= (writeEnable ? wrData : RF[readSelect1]);
-      	if(wrReg == readSelect2)
+   if(wrReg == readSelect2)
         	readData2 <= (writeEnable ? wrData : RF[readSelect2]);
-		if (!writeEnable) begin
+	if (!writeEnable) begin
 			readData1 <= ( readSelect1 == 0 ) ? 0 : RF[readSelect1];
 			// $display("PRG:Read to %d:%d ", readSelect1,readData1);
 			readData2 <= ( readSelect2 == 0 ) ? 0 : RF[readSelect2];
-      			//$display("PRG:Read to %d:%d ", readSelect1,readData1);
-      		end
+      	//$display("PRG:Read to %d:%d ", readSelect1,readData1);
+   end
 end
 endmodule  

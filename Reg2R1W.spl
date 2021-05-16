@@ -1,0 +1,15 @@
+[Inputs]
+clk
+writeEnable
+rst
+=wrData[31:0]=
+=wrReg[4:0]=
+=readSelect1[4:0]=
+=readSelect2[4:0]=
+[Outputs]
+=readData1[31:0]=
+=readData2[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel Reg2R1W
+

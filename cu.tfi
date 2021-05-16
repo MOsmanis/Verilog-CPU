@@ -1,0 +1,22 @@
+
+
+
+// Instantiate the module
+cu instance_name (
+    .MEM_INST(MEM_INST), 
+    .INST_ENB(INST_ENB), 
+    .CLK(CLK), 
+    .RS1_ADR(RS1_ADR), 
+    .RS2_ADR(RS2_ADR), 
+    .REG_ADR(REG_ADR), 
+    .RDY_CLK(RDY_CLK), 
+    .PC_CLK(PC_CLK), 
+    .RS1_ENB(RS1_ENB), 
+    .RS2_ENB(RS2_ENB), 
+    .ALU_OPT(ALU_OPT), 
+    .BR_OPT(BR_OPT), 
+    .LSU_OPT(LSU_OPT), 
+    .WRITE_ENB(WRITE_ENB)
+    );
+
+

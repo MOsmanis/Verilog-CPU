@@ -1,0 +1,13 @@
+[Inputs]
+=OP1[31:0]=
+=OP2[31:0]=
+=OPCODE[3:0]=
+[Outputs]
+LT
+LTU
+EQ
+=RESULT[31:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel alu
+
