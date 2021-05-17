@@ -18,8 +18,8 @@ NOTE! Initialization file must be the same size as the memory block or smaller! 
 ### Writing to memory
 
 1. Set address 
-2. Set <memblock>_wenable = HIGH
+2. Set [module]_wenable = HIGH
 3. Hold for at least 1 complete clock cycle
-4. Set <memblock>_wenable = LOW
+4. Set [module]_wenable = LOW
 
 Note: Reading only works correctly after wenable is set low again. You can read back the data on the next rising clock edge.
