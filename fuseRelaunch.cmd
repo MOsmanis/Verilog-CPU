@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/ise/Documents/CPU/Verilog-CPU/TB_alu32_isim_beh.exe" -prj "/home/ise/Documents/CPU/Verilog-CPU/TB_alu32_beh.prj" "work.TB_alu32" "work.glbl" 

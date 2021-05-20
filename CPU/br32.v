@@ -17,7 +17,8 @@ parameter [2:0] EQ = 0,
 					 LT = 2,
 					 GE = 3,
 					 JAL = 4,
-					 JALR = 5;
+					 JALR = 5,
+					 OFF = 9;
 
 // Jump instructions: 	JAL: rd = pc + 4, pc = pc + signext(imm)
 // 							JALR: rd = pc + 4, pc = rs1 + signext(imm)	
@@ -32,6 +33,7 @@ parameter [2:0] EQ = 0,
 							(BRUOP == LT) ? aluLT :
 							(BRUOP == GE) ? !aluLT :
 							(BRUOP == JAL) ? 1 :			// Can be routed in Control
-							(BRUOP == JALR) ? 1 : 0;		// 
+							(BRUOP == JALR) ? 1 : 
+							(BRUOP == OFF) ? 0 : 0;
 
 endmodule

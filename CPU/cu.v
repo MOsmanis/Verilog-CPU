@@ -19,11 +19,10 @@ module cu(
 	 //output CSR_DATA
 	 //output CSR_ADR
 	 output reg WRITE_ENB,
-	 output reg [24:0] IMM,
 	 output reg [2:0] IMM_TYPE,
 	 output reg [2:0] RS1_MUX_SELECT,// 0 - REG_RS1 1 - PC_ADDR
 	 output reg [2:0] RS2_MUX_SELECT,// 0 - REG_RS2 1 - IMM 
-	 output reg [2:0] REG_MUX_SELECT, //0 - ALU_RESULT 1 - LSU_RESULT 2 - IMM_RESULT 3 - PC_ADDR_RESULT 4 - DATA_MEMORY_RESULT?
+	 output reg [2:0] REG_MUX_SELECT, //0 - ALU_RESULT 1 - LSU_RESULT 2 - IMM_RESULT 3 - PC_ADDR_RESULT 4 - PC_+4
 	 output reg [2:0] LSU_MUX_SELECT,
 	 output reg [2:0] PC_MUX_SELECT //0 - +4 1 - +IMM
 	 );
@@ -34,41 +33,63 @@ always @ (posedge CLK) begin
 	//TODO send to IP(PC) module address for writing instructions
 	if(INST_ENB)
 	 WRITE_ENB=0;
+	 BR_OPT=9;
 	 begin
 		 case (MEM_INST[6:0])//OP CODE
 			7'b0110111 : begin //LSU 37
 			  end
 			7'b0010111 : begin //LSU 17
 				  end
-			7'b1101111 : begin //BR 6F
-					IMM = MEM_INST[31:7];
+			7'b1101111 : begin //BR 6F JAL
 					IMM_TYPE = 3'b100;
+					REG_MUX_SELECT = 4;
+					WRITE_ENB = 1;
+					BR_OPT = 4;
 				  end	
 			7'b1100111 : begin //BR 67
 				  end //JALR
 			7'b1100011 : begin //BR 63
+					RS1_ADR = MEM_INST[19:15];
+					 RS2_ADR=MEM_INST[24:20];
+					 RS1_MUX_SELECT=0;
+					 RS2_MUX_SELECT=0;
+					 IMM_TYPE = 3'b001;
 					case (MEM_INST[14:12])//funct3
-						 3'b000 :begin 
+						 3'b000 :begin //BEQ
+								BR_OPT = 0;
 							end
-						 3'b001 :begin 
+						 3'b001 :begin //BNE
+								BR_OPT = 1;
 							end
-						 3'b100 :begin 
+						 3'b100 :begin //BLT
+								BR_OPT = 2;
 							end
-						 3'b101 :begin 
+						 3'b101 :begin //BGE
+								BR_OPT = 3;
 							end
 						 3'b110 :begin 
+								BR_OPT = 2;//BLTU ??
 							end
 						 3'b111 :begin 
+								BR_OPT = 3;//BGEU ??
 							end
 					endcase
 				  end
 			7'b0000011 : begin //LSU - 03
+					LSU_OPT = MEM_INST[14:12];
+					IMM_TYPE = 3'b000;
 					case (MEM_INST[14:12])//funct3
 						 3'b000 :begin 
+							
 							end
 						 3'b001 :begin 
 							end
-						 3'b010 :begin 
+						 3'b010 :begin //LW
+								//1. RS2_MUX for IMM
+								//2. ALU_OPT SUM
+								//3. ALU RESULT to LSU
+								//4. REG MUX for LSU
+								//5. write enable
 							end
 						 3'b100 :begin 
 							end
