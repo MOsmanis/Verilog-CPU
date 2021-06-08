@@ -9,7 +9,6 @@
         <signal name="XLXN_4(4:0)" />
         <signal name="XLXN_5(4:0)" />
         <signal name="XLXN_6(4:0)" />
-        <signal name="XLXN_1" />
         <signal name="XLXN_7" />
         <signal name="CLK" />
         <signal name="MEM_INST(31:0)" />
@@ -40,6 +39,7 @@
         <signal name="MEM_LOAD(31:0)" />
         <signal name="MEM_STORE(31:0)" />
         <signal name="XLXN_95(31:0)" />
+        <signal name="XLXN_96(2:0)" />
         <port polarity="Input" name="CLK" />
         <port polarity="Input" name="MEM_INST(31:0)" />
         <port polarity="Input" name="MEM_INST_ENB" />
@@ -207,7 +207,7 @@
             <line x2="384" y1="-96" y2="-96" x1="320" />
         </blockdef>
         <block symbolname="Reg2R1W" name="XLXI_9">
-            <blockpin signalname="XLXN_1" name="clk" />
+            <blockpin signalname="CLK" name="clk" />
             <blockpin signalname="XLXN_7" name="writeEnable" />
             <blockpin name="rst" />
             <blockpin signalname="XLXN_20(31:0)" name="wrData(31:0)" />
@@ -230,7 +230,7 @@
             <blockpin signalname="MEM_INST_ENB" name="INST_ENB" />
             <blockpin signalname="CLK" name="CLK" />
             <blockpin signalname="MEM_INST(31:0)" name="MEM_INST(31:0)" />
-            <blockpin signalname="XLXN_1" name="RDY_CLK" />
+            <blockpin name="RDY_CLK" />
             <blockpin signalname="XLXN_69" name="PC_CLK" />
             <blockpin signalname="XLXN_7" name="WRITE_ENB" />
             <blockpin signalname="XLXN_4(4:0)" name="RS1_ADR(4:0)" />
@@ -243,7 +243,7 @@
             <blockpin signalname="XLXN_64(2:0)" name="RS1_MUX_SELECT(2:0)" />
             <blockpin signalname="XLXN_66(2:0)" name="RS2_MUX_SELECT(2:0)" />
             <blockpin signalname="XLXN_51(2:0)" name="REG_MUX_SELECT(2:0)" />
-            <blockpin name="LSU_MUX_SELECT(2:0)" />
+            <blockpin signalname="XLXN_96(2:0)" name="LSU_MUX_SELECT(2:0)" />
             <blockpin name="PC_MUX_SELECT(2:0)" />
         </block>
         <block symbolname="imm32" name="XLXI_13">
@@ -303,14 +303,14 @@
         <block symbolname="lsu" name="XLXI_34">
             <blockpin signalname="XLXN_90(2:0)" name="LSUOP(2:0)" />
             <blockpin signalname="MEM_LOAD(31:0)" name="inData_load(31:0)" />
-            <blockpin name="inData_store(31:0)" />
+            <blockpin signalname="XLXN_61(31:0)" name="inData_store(31:0)" />
             <blockpin signalname="XLXN_91(31:0)" name="inAddr(31:0)" />
             <blockpin signalname="XLXN_95(31:0)" name="outData_load(31:0)" />
             <blockpin signalname="MEM_STORE(31:0)" name="outData_store(31:0)" />
             <blockpin signalname="MEM_ADDR(15:0)" name="outAddr(15:0)" />
         </block>
         <block symbolname="mux8" name="XLXI_35">
-            <blockpin name="select(2:0)" />
+            <blockpin signalname="XLXN_96(2:0)" name="select(2:0)" />
             <blockpin signalname="XLXN_13(31:0)" name="in0(31:0)" />
             <blockpin name="in1(31:0)" />
             <blockpin name="in2(31:0)" />
@@ -336,9 +336,8 @@
         <attr value="4" name="GridsPerUnit" />
         <branch name="XLXN_7">
             <wire x2="3536" y1="3968" y2="3968" x1="3456" />
-            <wire x2="3680" y1="2768" y2="2768" x1="3536" />
-            <wire x2="3696" y1="2768" y2="2768" x1="3680" />
             <wire x2="3536" y1="2768" y2="3968" x1="3536" />
+            <wire x2="3696" y1="2768" y2="2768" x1="3536" />
         </branch>
         <branch name="XLXN_13(31:0)">
             <wire x2="3024" y1="2272" y2="2448" x1="3024" />
@@ -352,25 +351,21 @@
         </branch>
         <branch name="XLXN_6(4:0)">
             <wire x2="3552" y1="3712" y2="3712" x1="3456" />
-            <wire x2="3680" y1="2576" y2="2576" x1="3552" />
-            <wire x2="3696" y1="2576" y2="2576" x1="3680" />
             <wire x2="3552" y1="2576" y2="3712" x1="3552" />
+            <wire x2="3696" y1="2576" y2="2576" x1="3552" />
         </branch>
         <branch name="XLXN_5(4:0)">
             <wire x2="3584" y1="3648" y2="3648" x1="3456" />
-            <wire x2="3680" y1="2448" y2="2448" x1="3584" />
-            <wire x2="3696" y1="2448" y2="2448" x1="3680" />
             <wire x2="3584" y1="2448" y2="3648" x1="3584" />
+            <wire x2="3696" y1="2448" y2="2448" x1="3584" />
         </branch>
         <branch name="XLXN_4(4:0)">
             <wire x2="3568" y1="3584" y2="3584" x1="3456" />
-            <wire x2="3680" y1="2512" y2="2512" x1="3568" />
-            <wire x2="3696" y1="2512" y2="2512" x1="3680" />
             <wire x2="3568" y1="2512" y2="3584" x1="3568" />
+            <wire x2="3696" y1="2512" y2="2512" x1="3568" />
         </branch>
         <branch name="MEM_INST_ENB">
-            <wire x2="2960" y1="3328" y2="3328" x1="2944" />
-            <wire x2="2976" y1="3328" y2="3328" x1="2960" />
+            <wire x2="2976" y1="3328" y2="3328" x1="2944" />
         </branch>
         <branch name="XLXN_20(31:0)">
             <wire x2="3472" y1="2384" y2="2384" x1="3456" />
@@ -379,7 +374,6 @@
         </branch>
         <instance x="3072" y="2928" name="XLXI_12" orien="R0">
         </instance>
-        <iomarker fontsize="28" x="2944" y="3616" name="CLK" orien="R180" />
         <iomarker fontsize="28" x="2944" y="3328" name="MEM_INST_ENB" orien="R180" />
         <branch name="XLXN_50(2:0)">
             <wire x2="2192" y1="3376" y2="3376" x1="2176" />
@@ -415,24 +409,22 @@
         </branch>
         <instance x="3696" y="2416" name="XLXI_9" orien="M180">
         </instance>
-        <branch name="XLXN_1">
-            <wire x2="3472" y1="3328" y2="3328" x1="3456" />
-            <wire x2="3680" y1="2832" y2="2832" x1="3472" />
-            <wire x2="3696" y1="2832" y2="2832" x1="3680" />
-            <wire x2="3472" y1="2832" y2="3328" x1="3472" />
-        </branch>
         <instance x="5248" y="2848" name="XLXI_11" orien="R0">
         </instance>
         <branch name="XLXN_60(3:0)">
             <wire x2="4880" y1="3776" y2="3776" x1="3456" />
-            <wire x2="5232" y1="2816" y2="2816" x1="4880" />
-            <wire x2="5248" y1="2816" y2="2816" x1="5232" />
             <wire x2="4880" y1="2816" y2="3776" x1="4880" />
+            <wire x2="5248" y1="2816" y2="2816" x1="4880" />
         </branch>
         <instance x="4304" y="2928" name="XLXI_31" orien="R0">
         </instance>
         <branch name="XLXN_61(31:0)">
-            <wire x2="4304" y1="2448" y2="2448" x1="4176" />
+            <wire x2="4208" y1="2448" y2="2448" x1="4176" />
+            <wire x2="4304" y1="2448" y2="2448" x1="4208" />
+            <wire x2="4208" y1="2304" y2="2448" x1="4208" />
+            <wire x2="4768" y1="2304" y2="2304" x1="4208" />
+            <wire x2="4768" y1="2304" y2="3376" x1="4768" />
+            <wire x2="6240" y1="3376" y2="3376" x1="4768" />
         </branch>
         <branch name="XLXN_62(31:0)">
             <wire x2="4016" y1="2896" y2="3072" x1="4016" />
@@ -443,17 +435,15 @@
         </branch>
         <branch name="XLXN_64(2:0)">
             <wire x2="3776" y1="4160" y2="4160" x1="3456" />
-            <wire x2="4080" y1="3008" y2="3008" x1="3776" />
-            <wire x2="4096" y1="3008" y2="3008" x1="4080" />
             <wire x2="3776" y1="3008" y2="4160" x1="3776" />
+            <wire x2="4096" y1="3008" y2="3008" x1="3776" />
         </branch>
         <instance x="4096" y="3552" name="XLXI_30" orien="R0">
         </instance>
         <branch name="XLXN_66(2:0)">
             <wire x2="3664" y1="4224" y2="4224" x1="3456" />
-            <wire x2="4288" y1="2384" y2="2384" x1="3664" />
-            <wire x2="4304" y1="2384" y2="2384" x1="4288" />
             <wire x2="3664" y1="2384" y2="4224" x1="3664" />
+            <wire x2="4304" y1="2384" y2="2384" x1="3664" />
         </branch>
         <branch name="XLXN_67(31:0)">
             <wire x2="4960" y1="2384" y2="2384" x1="4688" />
@@ -469,8 +459,7 @@
         </instance>
         <branch name="XLXN_69">
             <wire x2="1872" y1="2256" y2="2352" x1="1872" />
-            <wire x2="1920" y1="2352" y2="2352" x1="1872" />
-            <wire x2="1936" y1="2352" y2="2352" x1="1920" />
+            <wire x2="1936" y1="2352" y2="2352" x1="1872" />
             <wire x2="3648" y1="2256" y2="2256" x1="1872" />
             <wire x2="3648" y1="2256" y2="3392" x1="3648" />
             <wire x2="3648" y1="3392" y2="3392" x1="3456" />
@@ -484,8 +473,7 @@
         </branch>
         <branch name="XLXN_74(2:0)">
             <wire x2="3632" y1="3840" y2="3840" x1="3456" />
-            <wire x2="3488" y1="1936" y2="1936" x1="3472" />
-            <wire x2="3632" y1="1936" y2="1936" x1="3488" />
+            <wire x2="3632" y1="1936" y2="1936" x1="3472" />
             <wire x2="3632" y1="1936" y2="3840" x1="3632" />
         </branch>
         <branch name="XLXN_75">
@@ -504,8 +492,7 @@
             <wire x2="5776" y1="1872" y2="2176" x1="5776" />
             <wire x2="5776" y1="2176" y2="2624" x1="5776" />
             <wire x2="5984" y1="2176" y2="2176" x1="5776" />
-            <wire x2="5984" y1="2176" y2="2656" x1="5984" />
-            <wire x2="5984" y1="2656" y2="2688" x1="5984" />
+            <wire x2="5984" y1="2176" y2="2688" x1="5984" />
             <wire x2="5776" y1="2624" y2="2624" x1="5696" />
             <wire x2="5984" y1="2688" y2="2688" x1="5696" />
         </branch>
@@ -545,9 +532,8 @@
         </branch>
         <branch name="XLXN_90(2:0)">
             <wire x2="4896" y1="3904" y2="3904" x1="3456" />
-            <wire x2="6224" y1="3248" y2="3248" x1="4896" />
-            <wire x2="6240" y1="3248" y2="3248" x1="6224" />
             <wire x2="4896" y1="3248" y2="3904" x1="4896" />
+            <wire x2="6240" y1="3248" y2="3248" x1="4896" />
         </branch>
         <branch name="XLXN_91(31:0)">
             <wire x2="6240" y1="3440" y2="3440" x1="6176" />
@@ -586,10 +572,23 @@
             <wire x2="2976" y1="3904" y2="3904" x1="2960" />
         </branch>
         <branch name="CLK">
-            <wire x2="2960" y1="3616" y2="3616" x1="2944" />
+            <wire x2="2960" y1="3552" y2="3552" x1="2880" />
+            <wire x2="2960" y1="3552" y2="3616" x1="2960" />
             <wire x2="2976" y1="3616" y2="3616" x1="2960" />
+            <wire x2="2880" y1="3552" y2="4512" x1="2880" />
+            <wire x2="3520" y1="4512" y2="4512" x1="2880" />
+            <wire x2="2960" y1="3504" y2="3504" x1="2944" />
+            <wire x2="2960" y1="3504" y2="3552" x1="2960" />
+            <wire x2="3520" y1="2832" y2="4512" x1="3520" />
+            <wire x2="3696" y1="2832" y2="2832" x1="3520" />
         </branch>
         <instance x="2976" y="3936" name="XLXI_19" orien="R0">
         </instance>
+        <branch name="XLXN_96(2:0)">
+            <wire x2="4832" y1="4352" y2="4352" x1="3456" />
+            <wire x2="4832" y1="2320" y2="4352" x1="4832" />
+            <wire x2="6208" y1="2320" y2="2320" x1="4832" />
+        </branch>
+        <iomarker fontsize="28" x="2944" y="3504" name="CLK" orien="R180" />
     </sheet>
 </drawing>

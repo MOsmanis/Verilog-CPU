@@ -18,14 +18,12 @@ module imm32
 	wire [31:0] u_imm;
 	wire [31:0] j_imm;
 
-
 	assign i_imm = { {21{IN[24]}}, IN[23:18], IN[17:14], IN[13] };
 	assign s_imm = { {21{IN[24]}}, IN[23:18], IN[4:1],   IN[0]};
 	assign b_imm = { {20{IN[24]}}, IN[0],     IN[23:18], IN[4:1], 	1'b0};
-	assign u_imm = { IN[24],       IN[23:18], IN[12:5],  {12{1'b0}}};
+	assign u_imm = { IN[24], 		 IN[23:13], IN[12:5], {12{1'b0}}};
 	assign j_imm = { {12{IN[24]}}, IN[12:5],  IN[13],    IN[23:18],	IN[17:14] ,1'b0};
 	//assign sh_imm  = { 20'b0, IN[17:13] };
-   
    
 	assign immediate = ( imm_type == i_type)  ? i_imm :
 							( imm_type == b_type ) ? b_imm :
