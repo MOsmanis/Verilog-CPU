@@ -8,7 +8,7 @@ module mux8
     parameter [31:0]buswidth  = 32,
     parameter [31:0]selwidth  = 3)
 (
-    input [(selwidth-1):0] select,
+    input [(selwidth-1):0] in_select,
     input [(buswidth-1):0] in0,
     input [(buswidth-1):0] in1,
     input [(buswidth-1):0] in2,
@@ -21,13 +21,13 @@ module mux8
     );
 
 
-assign muxout = (select == 0) ? in0:
-					(select == 1) ? in1:
-					(select == 2) ? in2:
-					(select == 3) ? in3:
-					(select == 4) ? in4:
-					(select == 5) ? in5:
-					(select == 6) ? in6:
-					(select == 7) ? in7: 32'bx;
+assign muxout = (in_select == 0) ? in0:
+					(in_select == 1) ? in1:
+					(in_select == 2) ? in2:
+					(in_select == 3) ? in3:
+					(in_select == 4) ? in4:
+					(in_select == 5) ? in5:
+					(in_select == 6) ? in6:
+					(in_select == 7) ? in7: 32'bx;
 
 endmodule

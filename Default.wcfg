@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/ise/Documents/CPU/Verilog-CPU/schematic_schematic_sch_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="schematic_schematic_sch_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="11" />
+   <wvobject fp_name="/schematic_schematic_sch_tb/ADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_ADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MEM_ADDR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_ADDR[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_STORE" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MEM_STORE[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_STORE[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_WRITE_ENABLE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MEM_WRITE_ENABLE</obj_property>
+      <obj_property name="ObjectShortName">MEM_WRITE_ENABLE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/schematic_schematic_sch_tb/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_INST_ENB" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">MEM_INST_ENB</obj_property>
+      <obj_property name="ObjectShortName">MEM_INST_ENB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_LOAD" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MEM_LOAD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_LOAD[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/schematic_schematic_sch_tb/READ_ENB" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">READ_ENB</obj_property>
+      <obj_property name="ObjectShortName">READ_ENB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/schematic_schematic_sch_tb/RST" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">RST</obj_property>
+      <obj_property name="ObjectShortName">RST</obj_property>
+   </wvobject>
+   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_INST" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MEM_INST[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_INST[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/schematic_schematic_sch_tb/UUT/XLXI_9/RF" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">RF[0:31,31:0]</obj_property>
+      <obj_property name="ObjectShortName">RF[0:31,31:0]</obj_property>
+   </wvobject>
+</wave_config>

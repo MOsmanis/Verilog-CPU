@@ -1,5 +1,5 @@
 [Inputs]
-=select[2:0]=
+=in_select[2:0]=
 =in0[31:0]=
 =in1[31:0]=
 =in2[31:0]=

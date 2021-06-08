@@ -1,0 +1,189 @@
+////////////////////////////////////////////////////////////////////////////////
+// Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+////////////////////////////////////////////////////////////////////////////////
+//   ____  ____ 
+//  /   /\/   / 
+// /___/  \  /    Vendor: Xilinx 
+// \   \   \/     Version : 14.7
+//  \   \         Application : sch2hdl
+//  /   /         Filename : schematic_drc.vf
+// /___/   /\     Timestamp : 06/08/2021 23:01:55
+// \   \  /  \ 
+//  \___\/\___\ 
+//
+//Command: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/sch2hdl -intstyle ise -family spartan3e -verilog schematic_drc.vf -w /home/ise/Documents/CPU/Verilog-CPU/schematic.sch
+//Design Name: schematic
+//Device: spartan3e
+//Purpose:
+//    This verilog netlist is translated from an ECS schematic.It can be 
+//    synthesized and simulated, but it should not be modified. 
+//
+`timescale 1ns / 1ps
+
+module schematic(CLK, 
+                 MEM_INST, 
+                 MEM_INST_ENB, 
+                 MEM_LOAD, 
+                 READ_ENB, 
+                 RST, 
+                 ADDR, 
+                 MEM_ADDR, 
+                 MEM_STORE, 
+                 MEM_WRITE_ENABLE);
+
+    input CLK;
+    input [31:0] MEM_INST;
+    input MEM_INST_ENB;
+    input [31:0] MEM_LOAD;
+    input READ_ENB;
+    input RST;
+   output [31:0] ADDR;
+   output [15:0] MEM_ADDR;
+   output [31:0] MEM_STORE;
+   output MEM_WRITE_ENABLE;
+   
+   wire [4:0] XLXN_4;
+   wire [4:0] XLXN_5;
+   wire [4:0] XLXN_6;
+   wire XLXN_7;
+   wire [31:0] XLXN_13;
+   wire [31:0] XLXN_20;
+   wire [2:0] XLXN_50;
+   wire [31:0] XLXN_53;
+   wire [3:0] XLXN_60;
+   wire [31:0] XLXN_61;
+   wire [31:0] XLXN_62;
+   wire [31:0] XLXN_67;
+   wire [31:0] XLXN_68;
+   wire XLXN_69;
+   wire XLXN_73;
+   wire [2:0] XLXN_74;
+   wire XLXN_75;
+   wire XLXN_78;
+   wire [31:0] XLXN_80;
+   wire [2:0] XLXN_90;
+   wire [31:0] XLXN_91;
+   wire [31:0] XLXN_95;
+   wire [31:0] XLXN_105;
+   wire [31:0] XLXN_106;
+   wire XLXN_112;
+   wire [2:0] XLXN_119;
+   wire [2:0] XLXN_120;
+   wire [2:0] XLXN_121;
+   wire [2:0] XLXN_124;
+   wire [2:0] XLXN_125;
+   wire [31:0] ADDR_DUMMY;
+   
+   assign ADDR[31:0] = ADDR_DUMMY[31:0];
+   Reg2R1W  XLXI_9 (.clk(CLK), 
+                   .readSelect1(XLXN_4[4:0]), 
+                   .readSelect2(XLXN_5[4:0]), 
+                   .rst(XLXN_112), 
+                   .wrData(XLXN_20[31:0]), 
+                   .writeEnable(XLXN_7), 
+                   .wrReg(XLXN_6[4:0]), 
+                   .readData1(XLXN_62[31:0]), 
+                   .readData2(XLXN_61[31:0]));
+   alu  XLXI_11 (.OPCODE(XLXN_60[3:0]), 
+                .OP1(XLXN_68[31:0]), 
+                .OP2(XLXN_67[31:0]), 
+                .EQ(XLXN_75), 
+                .LT(XLXN_78), 
+                .LTU(XLXN_78), 
+                .RESULT(XLXN_13[31:0]));
+   mux8  XLXI_12 (.in_select(XLXN_120[2:0]), 
+                 .in0(XLXN_13[31:0]), 
+                 .in1(XLXN_95[31:0]), 
+                 .in2(XLXN_53[31:0]), 
+                 .in3(ADDR_DUMMY[31:0]), 
+                 .in4(XLXN_80[31:0]), 
+                 .in5(), 
+                 .in6(), 
+                 .in7(), 
+                 .muxout(XLXN_20[31:0]));
+   imm32  XLXI_13 (.imm_type(XLXN_50[2:0]), 
+                  .in_imm(MEM_INST[31:7]), 
+                  .immediate(XLXN_53[31:0]));
+   mux8  XLXI_30 (.in_select(XLXN_121[2:0]), 
+                 .in0(XLXN_62[31:0]), 
+                 .in1(ADDR_DUMMY[31:0]), 
+                 .in2(), 
+                 .in3(), 
+                 .in4(), 
+                 .in5(), 
+                 .in6(), 
+                 .in7(), 
+                 .muxout(XLXN_68[31:0]));
+   mux8  XLXI_31 (.in_select(XLXN_124[2:0]), 
+                 .in0(XLXN_61[31:0]), 
+                 .in1(XLXN_53[31:0]), 
+                 .in2(), 
+                 .in3(), 
+                 .in4(), 
+                 .in5(), 
+                 .in6(), 
+                 .in7(), 
+                 .muxout(XLXN_67[31:0]));
+   PC  XLXI_32 (.clk(XLXN_69), 
+               .is_branch(XLXN_73), 
+               .newPC(XLXN_106[31:0]), 
+               .reset(XLXN_112), 
+               .PC(ADDR_DUMMY[31:0]));
+   br  XLXI_33 (.aluEQ(XLXN_75), 
+               .aluLT(XLXN_78), 
+               .BRUOP(XLXN_74[2:0]), 
+               .doBranch(XLXN_73));
+   lsu  XLXI_34 (.inAddr(XLXN_91[31:0]), 
+                .inData_load(MEM_LOAD[31:0]), 
+                .inData_store(XLXN_61[31:0]), 
+                .LSUOP(XLXN_90[2:0]), 
+                .outAddr(MEM_ADDR[15:0]), 
+                .outData_load(XLXN_95[31:0]), 
+                .outData_store(MEM_STORE[31:0]));
+   mux8  XLXI_35 (.in_select(XLXN_125[2:0]), 
+                 .in0(XLXN_13[31:0]), 
+                 .in1(), 
+                 .in2(), 
+                 .in3(), 
+                 .in4(), 
+                 .in5(), 
+                 .in6(), 
+                 .in7(), 
+                 .muxout(XLXN_91[31:0]));
+   pc4  XLXI_36 (.pc(ADDR_DUMMY[31:0]), 
+                .pc4(XLXN_80[31:0]));
+   pcsum  XLXI_37 (.op_a(ADDR_DUMMY[31:0]), 
+                  .op_b(XLXN_53[31:0]), 
+                  .newpc(XLXN_105[31:0]));
+   mux8  XLXI_38 (.in_select(XLXN_119[2:0]), 
+                 .in0(XLXN_105[31:0]), 
+                 .in1(XLXN_13[31:0]), 
+                 .in2(), 
+                 .in3(), 
+                 .in4(), 
+                 .in5(), 
+                 .in6(), 
+                 .in7(), 
+                 .muxout(XLXN_106[31:0]));
+   cu  XLXI_39 (.CLK(CLK), 
+               .INST_ENB(MEM_INST_ENB), 
+               .MEM_INST(MEM_INST[31:0]), 
+               .READ_ENB(READ_ENB), 
+               .RST(RST), 
+               .ALU_OPT(XLXN_60[3:0]), 
+               .BR_OPT(XLXN_74[2:0]), 
+               .GLOBAL_RESET(XLXN_112), 
+               .IMM_TYPE(XLXN_50[2:0]), 
+               .LSU_MUX_SELECT(XLXN_125[2:0]), 
+               .LSU_OPT(XLXN_90[2:0]), 
+               .MEM_WRITE_ENB(MEM_WRITE_ENABLE), 
+               .PC_CLK(XLXN_69), 
+               .PC_MUX_SELECT(XLXN_119[2:0]), 
+               .REG_ADR(XLXN_6[4:0]), 
+               .REG_MUX_SELECT(XLXN_120[2:0]), 
+               .RS1_ADR(XLXN_4[4:0]), 
+               .RS1_MUX_SELECT(XLXN_121[2:0]), 
+               .RS2_ADR(XLXN_5[4:0]), 
+               .RS2_MUX_SELECT(XLXN_124[2:0]), 
+               .WRITE_ENB(XLXN_7));
+endmodule

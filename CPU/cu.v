@@ -6,7 +6,9 @@
 module cu(
     input [31:0] MEM_INST,
 	 input INST_ENB,
+	 input READ_ENB,
 	 input CLK,
+	 input RST,
 	 output reg [4:0] RS1_ADR,
 	 output reg [4:0] RS2_ADR,
 	 output reg [4:0] REG_ADR,
@@ -20,6 +22,7 @@ module cu(
 	 //output CSR_ADR
 	 output reg WRITE_ENB,
 	 output reg MEM_WRITE_ENB,
+	 output reg GLOBAL_RESET,
 	 output reg [2:0] IMM_TYPE,
 	 output reg [2:0] RS1_MUX_SELECT,// 0 - REG_RS1 1 - PC_ADDR
 	 output reg [2:0] RS2_MUX_SELECT,// 0 - REG_RS2 1 - IMM 
@@ -28,11 +31,23 @@ module cu(
 	 output reg [2:0] PC_MUX_SELECT //0 - +IMM 1 - ALU result(JALR)
 	 );
 	 
-//TODO send signal to all to initialize (global reset)
-always @ (posedge CLK) begin
-	PC_CLK=0;
-	//TODO send to IP(PC) module address for writing instructions
-	if(INST_ENB)
+//send signal to all to initialize (global reset)
+always @ (RST) begin
+	 if (RST) begin
+	 	GLOBAL_RESET = 1;
+		@(posedge clk)begin //wait for REG to reset
+			@(negedge clk)begin
+				PC_CLK=1;
+			end
+		end
+	 end else begin
+	 	GLOBAL_RESET = 0;
+	 end
+end
+
+always @ (posedge INST_ENB) begin	
+	 PC_CLK=0;
+
 	 WRITE_ENB=0;
 	 MEM_WRITE_ENB=0;
 	 BR_OPT=9;
@@ -113,8 +128,10 @@ always @ (posedge CLK) begin
 					LSU_MUX_SELECT = 0;
 					//4. REG MUX for LSU
 					REG_MUX_SELECT = 3'b001;
-					//5. write enable
-					WRITE_ENB = 1;
+					@(posedge READ_ENB)begin
+						//5. write to reg
+						WRITE_ENB = 1;
+					end
 				  end
 			7'b0100011 : begin //LSU - 23
 					IMM_TYPE = 3'b010; // s type
@@ -125,13 +142,13 @@ always @ (posedge CLK) begin
 					RS1_MUX_SELECT=0;
 					case (MEM_INST[14:12])//funct3
 						 3'b000 :begin 
-								LSU_OPT = 3b'101;
+								LSU_OPT = 3'b101;
 							end
 						 3'b001 :begin 
-								LSU_OPT = 3b'110;
+								LSU_OPT = 3'b110;
 							end
 						 3'b010 :begin 
-								LSU_OPT = 3b'111;
+								LSU_OPT = 3'b111;
 							end
 					endcase
 					MEM_WRITE_ENB = 1;

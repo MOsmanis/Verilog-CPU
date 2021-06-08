@@ -1,21 +1,46 @@
-Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/ise/Documents/CPU/Verilog-CPU/TB_alu32_isim_beh.exe -prj /home/ise/Documents/CPU/Verilog-CPU/TB_alu32_beh.prj work.TB_alu32 work.glbl 
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/ise/Documents/CPU/Verilog-CPU/schematic_schematic_sch_tb_isim_beh.exe -prj /home/ise/Documents/CPU/Verilog-CPU/schematic_schematic_sch_tb_beh.prj work.schematic_schematic_sch_tb work.glbl 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
 Determining compilation order of HDL files
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/pcsum.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/pc4.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/cu.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/Reg2R1W.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/pc32.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/mux8.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/lsu.v" into library work
+WARNING:HDLCompiler:693 - "/home/ise/Documents/CPU/Verilog-CPU/CPU/lsu.v" Line 15: Parameter declaration becomes local in lsu with formal parameter declaration list
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/imm32.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/br32.v" into library work
 Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/alu.v" into library work
-Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/TB_alu32.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/schematic.vf" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/TB_CPU.v" into library work
 Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
+WARNING:HDLCompiler:1007 - "/home/ise/Documents/CPU/Verilog-CPU/CPU/imm32.v" Line 22: Element index 4 into in_imm is out of bounds
+WARNING:HDLCompiler:1007 - "/home/ise/Documents/CPU/Verilog-CPU/CPU/imm32.v" Line 23: Element index 4 into in_imm is out of bounds
+WARNING:HDLCompiler:1007 - "/home/ise/Documents/CPU/Verilog-CPU/CPU/imm32.v" Line 24: Element index 5 into in_imm is out of bounds
+WARNING:HDLCompiler:1007 - "/home/ise/Documents/CPU/Verilog-CPU/CPU/imm32.v" Line 25: Element index 5 into in_imm is out of bounds
 Completed static elaboration
-Fuse Memory Usage: 94944 KB
+Fuse Memory Usage: 95184 KB
 Fuse CPU Usage: 690 ms
+Compiling module Reg2R1W
 Compiling module alu
-Compiling module TB_alu32
+Compiling module mux8
+Compiling module imm32
+Compiling module PC
+Compiling module br
+Compiling module lsu
+Compiling module pc4
+Compiling module pcsum
+Compiling module cu
+Compiling module schematic
+Compiling module schematic_schematic_sch_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Compiled 3 Verilog Units
-Built simulation executable /home/ise/Documents/CPU/Verilog-CPU/TB_alu32_isim_beh.exe
-Fuse Memory Usage: 98100 KB
-Fuse CPU Usage: 690 ms
-GCC CPU Usage: 180 ms
+Compiled 13 Verilog Units
+Built simulation executable /home/ise/Documents/CPU/Verilog-CPU/schematic_schematic_sch_tb_isim_beh.exe
+Fuse Memory Usage: 98496 KB
+Fuse CPU Usage: 700 ms
+GCC CPU Usage: 310 ms
