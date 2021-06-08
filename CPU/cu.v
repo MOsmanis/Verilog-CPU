@@ -46,6 +46,12 @@ always @ (posedge CLK) begin
 			   end
 			7'b0010111 : begin //AUIPC
 					IMM_TYPE = 3'b011; //u type
+					RS1_MUX_SEECT = 3'b001; //RS1 for PC
+					RS2_MUX_SELECT = 3'b001; // RS2 for IMM
+					ALU_OPT = 0;//ALU SUM
+					//RESULT to REG
+					REG_ADR = MEM_INST[11:7];
+					WRITE_ENB = 1;
 				end
 			7'b1101111 : begin //BR 6F JAL
 					IMM_TYPE = 3'b100;

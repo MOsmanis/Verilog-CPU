@@ -40,6 +40,7 @@
         <signal name="MEM_STORE(31:0)" />
         <signal name="XLXN_95(31:0)" />
         <signal name="XLXN_96(2:0)" />
+        <signal name="XLXN_97(31:0)" />
         <port polarity="Input" name="CLK" />
         <port polarity="Input" name="MEM_INST(31:0)" />
         <port polarity="Input" name="MEM_INST_ENB" />
@@ -278,7 +279,7 @@
         <block symbolname="mux8" name="XLXI_30">
             <blockpin signalname="XLXN_64(2:0)" name="select(2:0)" />
             <blockpin signalname="XLXN_62(31:0)" name="in0(31:0)" />
-            <blockpin name="in1(31:0)" />
+            <blockpin signalname="ADDR(31:0)" name="in1(31:0)" />
             <blockpin name="in2(31:0)" />
             <blockpin name="in3(31:0)" />
             <blockpin name="in4(31:0)" />
@@ -508,10 +509,13 @@
             <wire x2="2368" y1="2208" y2="2208" x1="2304" />
             <wire x2="2368" y1="2208" y2="2352" x1="2368" />
             <wire x2="2448" y1="2352" y2="2352" x1="2368" />
-            <wire x2="2688" y1="2352" y2="2352" x1="2448" />
+            <wire x2="2448" y1="2352" y2="2432" x1="2448" />
+            <wire x2="2528" y1="2352" y2="2352" x1="2448" />
+            <wire x2="2688" y1="2352" y2="2352" x1="2528" />
             <wire x2="2688" y1="2352" y2="2640" x1="2688" />
             <wire x2="3072" y1="2640" y2="2640" x1="2688" />
-            <wire x2="2448" y1="2352" y2="2432" x1="2448" />
+            <wire x2="2528" y1="2352" y2="3136" x1="2528" />
+            <wire x2="4096" y1="3136" y2="3136" x1="2528" />
             <wire x2="2368" y1="2112" y2="2112" x1="2304" />
             <wire x2="2304" y1="2112" y2="2160" x1="2304" />
             <wire x2="2368" y1="2352" y2="2352" x1="2320" />
