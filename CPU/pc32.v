@@ -5,7 +5,7 @@ module PC
 	input	clk,
 	input	reset,		// set PC = 0
 	input is_branch, 	// selector: branch, pc+4
-	input [31:0] newPC, // optional PC+SIG(ADDR)
+	input [31:0] newPC, // optional PC+SIG(ADDR) OR JALR
 	output reg [31:0] PC
 );
 

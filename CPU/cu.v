@@ -25,7 +25,7 @@ module cu(
 	 output reg [2:0] RS2_MUX_SELECT,// 0 - REG_RS2 1 - IMM 
 	 output reg [2:0] REG_MUX_SELECT, //0 - ALU_RESULT 1 - LSU_RESULT 2 - IMM_RESULT 3 - PC_ADDR_RESULT 4 - PC_+4
 	 output reg [2:0] LSU_MUX_SELECT,
-	 output reg [2:0] PC_MUX_SELECT //0 - +4 1 - +IMM
+	 output reg [2:0] PC_MUX_SELECT //0 - +IMM 1 - ALU result(JALR)
 	 );
 	 
 //TODO send signal to all to initialize (global reset)
@@ -36,6 +36,7 @@ always @ (posedge CLK) begin
 	 WRITE_ENB=0;
 	 MEM_WRITE_ENB=0;
 	 BR_OPT=9;
+	 PC_MUX_SELECT = 0;
 	 begin
 		 case (MEM_INST[6:0])//OP CODE
 			7'b0110111 : begin //LUI
@@ -46,20 +47,30 @@ always @ (posedge CLK) begin
 			   end
 			7'b0010111 : begin //AUIPC
 					IMM_TYPE = 3'b011; //u type
-					RS1_MUX_SEECT = 3'b001; //RS1 for PC
+					RS1_MUX_SELECT = 3'b001; //RS1 for PC
 					RS2_MUX_SELECT = 3'b001; // RS2 for IMM
 					ALU_OPT = 0;//ALU SUM
-					//RESULT to REG
+					REG_MUX_SELECT = 0;//ALU RESULT to REG
 					REG_ADR = MEM_INST[11:7];
 					WRITE_ENB = 1;
 				end
 			7'b1101111 : begin //BR 6F JAL
 					IMM_TYPE = 3'b100;
-					REG_MUX_SELECT = 4;
+					REG_MUX_SELECT = 3'b100;
 					WRITE_ENB = 1;
-					BR_OPT = 4;
-				  end	
-			7'b1100111 : begin //BR 67
+					BR_OPT = 3'b100;
+				  end
+			7'b1100111 : begin //BR 67 JALR
+					IMM_TYPE = 3'b000;// i type
+					REG_MUX_SELECT = 3'b100;//mux select pc+4
+					WRITE_ENB = 1;
+					//rs 1 + imm to pc
+					RS1_ADR = MEM_INST[19:15];
+					RS1_MUX_SELECT=0;
+					RS2_MUX_SELECT=3'b001;//imm
+					ALU_OPT = 0; //sum
+					PC_MUX_SELECT = 3'b001; //for ALU result
+					BR_OPT = 3'b101; //
 				  end //JALR
 			7'b1100011 : begin //BR 63
 					RS1_ADR = MEM_INST[19:15];
@@ -95,6 +106,7 @@ always @ (posedge CLK) begin
 					REG_ADR = MEM_INST[11:7];
 					//1. RS2_MUX for IMM
 					RS2_MUX_SELECT = 3'b001;
+					RS1_MUX_SELECT=0;
 					//2. ALU_OPT SUM
 					ALU_OPT = 0;
 					//3. ALU RESULT to LSU
@@ -110,6 +122,7 @@ always @ (posedge CLK) begin
 					RS2_ADR = MEM_INST[24:20];
 					REG_ADR = MEM_INST[11:7];
 					RS2_MUX_SELECT = 3'b001;
+					RS1_MUX_SELECT=0;
 					case (MEM_INST[14:12])//funct3
 						 3'b000 :begin 
 								LSU_OPT = 3b'101;
