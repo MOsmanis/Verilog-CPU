@@ -73,7 +73,8 @@ always @(posedge CLK) begin
 	//	PC_CLK = 0;
 end
 
-always  @(posedge INST_ENB) begin
+always  @(posedge CLK) begin
+	if(INST_ENB)begin
 	 //WAIT_FOR_READ = 0;
 	 //INST_FIN = 0;
 	 WRITE_ENB = 0;
@@ -345,6 +346,7 @@ always  @(posedge INST_ENB) begin
 			end
 		endcase
 		INST_FIN = 1;
+	end
 	end
 end
 

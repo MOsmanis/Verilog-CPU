@@ -51,7 +51,6 @@
     </file>
     <file xil_pn:fileType="FILE_XPI" xil_pn:name="CPU_TB_LCD.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="CPU_TB_LCD.xst"/>
-    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="CPU_TB_LCD_CPU_TB_LCD_sch_tb_beh.prj"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="CPU_TB_LCD_CPU_TB_LCD_sch_tb_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_ISIM_MISC" xil_pn:name="CPU_TB_LCD_CPU_TB_LCD_sch_tb_isim_beh.wdb"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="CPU_TB_LCD_CPU_TB_LCD_sch_tb_stx_beh.prj"/>
@@ -86,6 +85,7 @@
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="TB_Reg_xst.xrpt"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_ISIM_EXE" xil_pn:name="TB_alu32_isim_beh.exe"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TB_alu32_stx_beh.prj"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="TB_cu_stx_beh.prj"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/bitgen.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
@@ -105,16 +105,13 @@
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="cu.sym" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="cu.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="cu_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="imm32.prj"/>
     <file xil_pn:fileType="FILE_SPL" xil_pn:name="imm32.spl"/>
     <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="imm32.stx"/>
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="imm32.sym" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_XST" xil_pn:name="imm32.xst"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="imm32_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
-    <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_LOG" xil_pn:name="isim.log"/>
     <file xil_pn:fileType="FILE_SPL" xil_pn:name="lcd.spl"/>
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="lcd.sym" xil_pn:origination="imported"/>
     <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="mux8.prj"/>
@@ -252,7 +249,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1623273735" xil_pn:in_ck="-5158372709896655887" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1623273735">
+    <transform xil_pn:end_ts="1623276987" xil_pn:in_ck="-5158372709896655887" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1623276987">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="CPU/Reg2R1W.v"/>
@@ -287,11 +284,11 @@
       <outfile xil_pn:name="VGA/vga640x480.v"/>
       <outfile xil_pn:name="VGA/vga_top.v"/>
     </transform>
-    <transform xil_pn:end_ts="1623264535" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-5411064984356874810" xil_pn:start_ts="1623264535">
+    <transform xil_pn:end_ts="1623276990" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="2760319315405882052" xil_pn:start_ts="1623276990">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1623272001" xil_pn:in_ck="6940468063110008" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="5171485728688231304" xil_pn:start_ts="1623271999">
+    <transform xil_pn:end_ts="1623276992" xil_pn:in_ck="6940468063110008" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="6677723166242731014" xil_pn:start_ts="1623276990">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="CPU_TB_LCD.vf"/>
@@ -301,7 +298,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1623273735" xil_pn:in_ck="1363677961833830501" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1623273735">
+    <transform xil_pn:end_ts="1623276992" xil_pn:in_ck="1363677961833830501" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1623276992">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="CPU/Reg2R1W.v"/>
@@ -338,22 +335,18 @@
       <outfile xil_pn:name="VGA/vga_top.v"/>
       <outfile xil_pn:name="schematic.vf"/>
     </transform>
-    <transform xil_pn:end_ts="1623273737" xil_pn:in_ck="1363677961833830501" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-3697349598949314259" xil_pn:start_ts="1623273735">
-      <status xil_pn:value="SuccessfullyRun"/>
+    <transform xil_pn:end_ts="1623276994" xil_pn:in_ck="1363677961833830501" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-4372618422296913271" xil_pn:start_ts="1623276992">
+      <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <outfile xil_pn:name="CPU_TB_LCD_CPU_TB_LCD_sch_tb_beh.prj"/>
-      <outfile xil_pn:name="CPU_TB_LCD_CPU_TB_LCD_sch_tb_isim_beh.exe"/>
-      <outfile xil_pn:name="fuse.log"/>
-      <outfile xil_pn:name="isim"/>
-      <outfile xil_pn:name="isim.log"/>
-      <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1623273737" xil_pn:in_ck="2698258935385294315" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="1189602434276977439" xil_pn:start_ts="1623273737">
-      <status xil_pn:value="SuccessfullyRun"/>
+    <transform xil_pn:end_ts="1623275641" xil_pn:in_ck="2698258935385294315" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="1189602434276977439" xil_pn:start_ts="1623275641">
+      <status xil_pn:value="AbortedRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="OutOfDateForced"/>
       <outfile xil_pn:name="CPU_TB_LCD_CPU_TB_LCD_sch_tb_isim_beh.wdb"/>
       <outfile xil_pn:name="isim.cmd"/>
-      <outfile xil_pn:name="isim.log"/>
     </transform>
     <transform xil_pn:end_ts="1621167050" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1621167050">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -389,8 +382,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
+      <status xil_pn:value="OutputRemoved"/>
       <outfile xil_pn:name=".lso"/>
       <outfile xil_pn:name="CPU_TB_LCD.jhd"/>
       <outfile xil_pn:name="CPU_TB_LCD.lso"/>
@@ -400,7 +396,6 @@
       <outfile xil_pn:name="CPU_TB_LCD.stx"/>
       <outfile xil_pn:name="CPU_TB_LCD.syr"/>
       <outfile xil_pn:name="CPU_TB_LCD.xst"/>
-      <outfile xil_pn:name="CPU_TB_LCD_CPU_TB_LCD_sch_tb_beh.prj"/>
       <outfile xil_pn:name="CPU_TB_LCD_CPU_TB_LCD_sch_tb_stx_beh.prj"/>
       <outfile xil_pn:name="CPU_TB_LCD_xst.xrpt"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
@@ -416,6 +411,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="CPU_TB_LCD.bld"/>
       <outfile xil_pn:name="CPU_TB_LCD.ngd"/>

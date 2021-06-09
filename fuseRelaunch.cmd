@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD_CPU_TB_LCD_sch_tb_isim_beh.exe" -prj "/home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD_CPU_TB_LCD_sch_tb_beh.prj" "work.CPU_TB_LCD_CPU_TB_LCD_sch_tb" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "/home/ise/Documents/CPU/Verilog-CPU/TB_cu_isim_beh.exe" -prj "/home/ise/Documents/CPU/Verilog-CPU/TB_cu_beh.prj" "work.TB_cu" "work.glbl" 
