@@ -8,6 +8,7 @@ module cu(
 	 input INST_ENB,
 	 input CLK,
 	 input RST,
+	 input READ_READY,
 	 output reg [4:0] RS1_ADR,
 	 output reg [4:0] RS2_ADR,
 	 output reg [4:0] REG_ADR,
@@ -34,13 +35,45 @@ module cu(
 always @ (RST) begin
 	 if (RST) begin
 	 	GLOBAL_RESET = 1;
-		PC_CLK=1;	
+		RST_DONE = 1;
 	 end else begin
 	 	GLOBAL_RESET = 0;
 	 end
+	 RST_DONE = 0;
+end
+
+always @(posedge READ_READY or WAIT_FOR_READ) begin
+	if(WAIT_FOR_READ)
+		CAN_CONTINUE = 0;
+	if(READ_READY)
+		CAN_CONTINUE = 1;
+end
+
+//regulates when can go to next command
+always @(posedge RST_DONE or CAN_CONTINUE or posedge INST_ENB or INST_FIN) begin
+	if (RST_DONE)
+		PC_CLK=1;
+	else if (CAN_CONTINUE && INST_FIN && INST_ENB==0)
+		PC_CLK=1;
+	else if(INST_ENB)
+		PC_CLK=0;
+	else 
+		PC_CLK=0;
+end
+
+always @(posedge RST or posedge INST_ENB or READ_READY) begin
+	if (READ_READY)
+		PC_CLK=1;
+	if (INST_ENB)
+		PC_CLK=0;
+	if (RST)
+		PC_CLK=1;
+		
 end
 
 always  @(posedge INST_ENB) begin
+	 WAIT_FOR_READ = 0;
+	 INST_FIN = 0;
 	 PC_CLK=0;
 	 WRITE_ENB = 0;
 	 MEM_WRITE_ENB=0;
@@ -123,6 +156,7 @@ always  @(posedge INST_ENB) begin
 					//4. REG MUX for LSU
 					REG_MUX_SELECT = 3'b001;
 					//5. READ_ENABLE will go straight to reg
+					WAIT_FOR_READ = 1;
 				  end
 			7'b0100011 : begin //LSU - 23
 					IMM_TYPE = 3'b010; // s type
@@ -289,7 +323,7 @@ always  @(posedge INST_ENB) begin
 			end
 		endcase
 		
-		PC_CLK=1;
+		INST_FIN = 1;
 	end
 end
 

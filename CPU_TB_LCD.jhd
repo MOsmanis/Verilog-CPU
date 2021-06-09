@@ -1,0 +1,7 @@
+MODULE CPU_TB_LCD
+	SUBMODULE lcd
+		INSTANCE XLXI_3
+	SUBMODULE char_mem
+		INSTANCE XLXI_4
+	SUBMODULE schematic_schematic_sch_tb
+		INSTANCE XLXI_5

@@ -1,0 +1,3 @@
+sch2hdl,-intstyle,ise,-family,spartan3e,-verilog,/home/ise/Documents/CPU/Verilog-CPU/schematic.vf,-w,/home/ise/Documents/CPU/Verilog-CPU/schematic.sch
+sch2hdl,-intstyle,ise,-family,spartan3e,-verilog,/home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD.vf,-w,/home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD.sch
+sch2hdl,-intstyle,ise,-family,spartan3e,-verilog,/home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD.vf,-w,/home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD.sch

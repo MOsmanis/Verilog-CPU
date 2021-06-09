@@ -1,0 +1,11 @@
+[Inputs]
+clk
+[Outputs]
+lcd_rs
+lcd_rw
+lcd_e
+=sf_d[11:8]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel top
+

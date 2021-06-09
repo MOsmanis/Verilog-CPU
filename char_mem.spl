@@ -1,0 +1,10 @@
+[Inputs]
+CLK
+=addr[4:0]=
+=lcd_buffer[0:255]=
+[Outputs]
+=lcd_bus[7:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel char_mem
+

@@ -1,0 +1,13 @@
+[Inputs]
+clk
+=mem_bus[7:0]=
+[Outputs]
+lcd_rs
+lcd_rw
+lcd_e
+=lcd_d[7:4]=
+=mem_addr[4:0]=
+[BiDir]
+[ATTRIBUTES]
+VeriModel lcd
+

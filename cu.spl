@@ -2,6 +2,7 @@
 INST_ENB
 CLK
 RST
+READ_READY
 =MEM_INST[31:0]=
 [Outputs]
 PC_CLK

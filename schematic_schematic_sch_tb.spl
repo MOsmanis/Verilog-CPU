@@ -1,6 +1,7 @@
 [Inputs]
+REAL_CLK
 [Outputs]
-
+=lcd_buffer[255:0]=
 [BiDir]
 [ATTRIBUTES]
 VeriModel schematic_schematic_sch_tb
