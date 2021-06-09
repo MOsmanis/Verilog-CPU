@@ -6,7 +6,6 @@
 module cu(
     input [31:0] MEM_INST,
 	 input INST_ENB,
-	 input READ_ENB,
 	 input CLK,
 	 input RST,
 	 output reg [4:0] RS1_ADR,
@@ -15,7 +14,7 @@ module cu(
 	 //output reg RDY_CLK,
 	 output reg PC_CLK,
 	 output reg [3:0] ALU_OPT,
-	 output reg [2:0] BR_OPT,
+	 output reg [3:0] BR_OPT,
 	 output reg [2:0] LSU_OPT,
 	 //output CSR_OPT
 	 //output CSR_DATA
@@ -35,22 +34,17 @@ module cu(
 always @ (RST) begin
 	 if (RST) begin
 	 	GLOBAL_RESET = 1;
-		@(posedge clk)begin //wait for REG to reset
-			@(negedge clk)begin
-				PC_CLK=1;
-			end
-		end
+		PC_CLK=1;	
 	 end else begin
 	 	GLOBAL_RESET = 0;
 	 end
 end
 
-always @ (posedge INST_ENB) begin	
+always  @(posedge INST_ENB) begin
 	 PC_CLK=0;
-
-	 WRITE_ENB=0;
+	 WRITE_ENB = 0;
 	 MEM_WRITE_ENB=0;
-	 BR_OPT=9;
+	 BR_OPT=4'b1000;
 	 PC_MUX_SELECT = 0;
 	 begin
 		 case (MEM_INST[6:0])//OP CODE
@@ -73,7 +67,7 @@ always @ (posedge INST_ENB) begin
 					IMM_TYPE = 3'b100;
 					REG_MUX_SELECT = 3'b100;
 					WRITE_ENB = 1;
-					BR_OPT = 3'b100;
+					BR_OPT = 4'b0100;
 				  end
 			7'b1100111 : begin //BR 67 JALR
 					IMM_TYPE = 3'b000;// i type
@@ -85,7 +79,7 @@ always @ (posedge INST_ENB) begin
 					RS2_MUX_SELECT=3'b001;//imm
 					ALU_OPT = 0; //sum
 					PC_MUX_SELECT = 3'b001; //for ALU result
-					BR_OPT = 3'b101; //
+					BR_OPT = 4'b0101; //
 				  end //JALR
 			7'b1100011 : begin //BR 63
 					RS1_ADR = MEM_INST[19:15];
@@ -98,19 +92,19 @@ always @ (posedge INST_ENB) begin
 								BR_OPT = 0;
 							end
 						 3'b001 :begin //BNE
-								BR_OPT = 1;
+								BR_OPT = 4'b0001;
 							end
 						 3'b100 :begin //BLT
-								BR_OPT = 2;
+								BR_OPT = 4'b0010;
 							end
 						 3'b101 :begin //BGE
-								BR_OPT = 3;
+								BR_OPT = 4'b0011;
 							end
 						 3'b110 :begin 
-								BR_OPT = 2;//BLTU ??
+								BR_OPT = 4'b0110;//BLTU
 							end
 						 3'b111 :begin 
-								BR_OPT = 3;//BGEU ??
+								BR_OPT = 4'b0111;//BGEU
 							end
 					endcase
 				  end
@@ -128,10 +122,7 @@ always @ (posedge INST_ENB) begin
 					LSU_MUX_SELECT = 0;
 					//4. REG MUX for LSU
 					REG_MUX_SELECT = 3'b001;
-					@(posedge READ_ENB)begin
-						//5. write to reg
-						WRITE_ENB = 1;
-					end
+					//5. READ_ENABLE will go straight to reg
 				  end
 			7'b0100011 : begin //LSU - 23
 					IMM_TYPE = 3'b010; // s type

@@ -24,6 +24,7 @@ module Reg2R1W(
     //output [31:0] readData2,
     input clk,
     input writeEnable,
+	 input mem_writeEnable,
 	 input rst
     );
 	 
@@ -44,7 +45,7 @@ always @ (posedge clk) begin
 		for(index = 0; index < 32; index = index + 1) 
 			RF[index] <= 32'b0;
 	end 
-	else if(writeEnable) begin
+	else if(writeEnable || mem_writeEnable) begin
  //     $display("Write to %d:%d ", wrReg,wrData);
 		RF[wrReg] <= wrData;
 	end

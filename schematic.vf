@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : schematic.vf
-// /___/   /\     Timestamp : 06/08/2021 23:04:06
+// /___/   /\     Timestamp : 06/09/2021 08:08:15
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -24,7 +24,7 @@ module schematic(CLK,
                  MEM_INST, 
                  MEM_INST_ENB, 
                  MEM_LOAD, 
-                 READ_ENB, 
+                 READ_ENABLE, 
                  RST, 
                  ADDR, 
                  MEM_ADDR, 
@@ -35,7 +35,7 @@ module schematic(CLK,
     input [31:0] MEM_INST;
     input MEM_INST_ENB;
     input [31:0] MEM_LOAD;
-    input READ_ENB;
+    input READ_ENABLE;
     input RST;
    output [31:0] ADDR;
    output [15:0] MEM_ADDR;
@@ -57,9 +57,8 @@ module schematic(CLK,
    wire [31:0] XLXN_68;
    wire XLXN_69;
    wire XLXN_73;
-   wire [2:0] XLXN_74;
+   wire [3:0] XLXN_74;
    wire XLXN_75;
-   wire XLXN_78;
    wire [31:0] XLXN_80;
    wire [2:0] XLXN_90;
    wire [31:0] XLXN_91;
@@ -72,10 +71,13 @@ module schematic(CLK,
    wire [2:0] XLXN_121;
    wire [2:0] XLXN_124;
    wire [2:0] XLXN_125;
+   wire XLXN_126;
+   wire XLXN_128;
    wire [31:0] ADDR_DUMMY;
    
    assign ADDR[31:0] = ADDR_DUMMY[31:0];
    Reg2R1W  XLXI_9 (.clk(CLK), 
+                   .mem_writeEnable(READ_ENABLE), 
                    .readSelect1(XLXN_4[4:0]), 
                    .readSelect2(XLXN_5[4:0]), 
                    .rst(XLXN_112), 
@@ -88,8 +90,8 @@ module schematic(CLK,
                 .OP1(XLXN_68[31:0]), 
                 .OP2(XLXN_67[31:0]), 
                 .EQ(XLXN_75), 
-                .LT(XLXN_78), 
-                .LTU(XLXN_78), 
+                .LT(XLXN_126), 
+                .LTU(XLXN_128), 
                 .RESULT(XLXN_13[31:0]));
    mux8  XLXI_12 (.in_select(XLXN_120[2:0]), 
                  .in0(XLXN_13[31:0]), 
@@ -130,8 +132,9 @@ module schematic(CLK,
                .reset(XLXN_112), 
                .PC(ADDR_DUMMY[31:0]));
    br  XLXI_33 (.aluEQ(XLXN_75), 
-               .aluLT(XLXN_78), 
-               .BRUOP(XLXN_74[2:0]), 
+               .aluLT(XLXN_126), 
+               .aluLTU(XLXN_128), 
+               .BRUOP(XLXN_74[3:0]), 
                .doBranch(XLXN_73));
    lsu  XLXI_34 (.inAddr(XLXN_91[31:0]), 
                 .inData_load(MEM_LOAD[31:0]), 
@@ -150,11 +153,6 @@ module schematic(CLK,
                  .in6(), 
                  .in7(), 
                  .muxout(XLXN_91[31:0]));
-   pc4  XLXI_36 (.pc(ADDR_DUMMY[31:0]), 
-                .pc4(XLXN_80[31:0]));
-   pcsum  XLXI_37 (.op_a(ADDR_DUMMY[31:0]), 
-                  .op_b(XLXN_53[31:0]), 
-                  .newpc(XLXN_105[31:0]));
    mux8  XLXI_38 (.in_select(XLXN_119[2:0]), 
                  .in0(XLXN_105[31:0]), 
                  .in1(XLXN_13[31:0]), 
@@ -168,10 +166,9 @@ module schematic(CLK,
    cu  XLXI_39 (.CLK(CLK), 
                .INST_ENB(MEM_INST_ENB), 
                .MEM_INST(MEM_INST[31:0]), 
-               .READ_ENB(READ_ENB), 
                .RST(RST), 
                .ALU_OPT(XLXN_60[3:0]), 
-               .BR_OPT(XLXN_74[2:0]), 
+               .BR_OPT(XLXN_74[3:0]), 
                .GLOBAL_RESET(XLXN_112), 
                .IMM_TYPE(XLXN_50[2:0]), 
                .LSU_MUX_SELECT(XLXN_125[2:0]), 
@@ -186,4 +183,9 @@ module schematic(CLK,
                .RS2_ADR(XLXN_5[4:0]), 
                .RS2_MUX_SELECT(XLXN_124[2:0]), 
                .WRITE_ENB(XLXN_7));
+   pc4  XLXI_42 (.pc(ADDR_DUMMY[31:0]), 
+                .pc4(XLXN_80[31:0]));
+   pcsum  XLXI_43 (.op_a(ADDR_DUMMY[31:0]), 
+                  .op_b(XLXN_53[31:0]), 
+                  .newpc(XLXN_105[31:0]));
 endmodule

@@ -1,7 +1,8 @@
 [Inputs]
 aluEQ
 aluLT
-=BRUOP[2:0]=
+aluLTU
+=BRUOP[3:0]=
 [Outputs]
 doBranch
 [BiDir]

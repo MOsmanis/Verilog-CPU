@@ -8,16 +8,7 @@
 <msg type="warning" file="HDLCompiler" num="693" delta="unknown" >"/home/ise/Documents/CPU/Verilog-CPU/CPU/lsu.v" Line 15: Parameter declaration becomes local in <arg fmt="%s" index="1">lsu</arg> with formal parameter declaration list
 </msg>
 
-<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"/home/ise/Documents/CPU/Verilog-CPU/CPU/imm32.v" Line 22: Element index <arg fmt="%d" index="1">4</arg> into <arg fmt="%s" index="2">in_imm</arg> is out of bounds
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"/home/ise/Documents/CPU/Verilog-CPU/CPU/imm32.v" Line 23: Element index <arg fmt="%d" index="1">4</arg> into <arg fmt="%s" index="2">in_imm</arg> is out of bounds
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"/home/ise/Documents/CPU/Verilog-CPU/CPU/imm32.v" Line 24: Element index <arg fmt="%d" index="1">5</arg> into <arg fmt="%s" index="2">in_imm</arg> is out of bounds
-</msg>
-
-<msg type="warning" file="HDLCompiler" num="1007" delta="unknown" >"/home/ise/Documents/CPU/Verilog-CPU/CPU/imm32.v" Line 25: Element index <arg fmt="%d" index="1">5</arg> into <arg fmt="%s" index="2">in_imm</arg> is out of bounds
+<msg type="warning" file="HDLCompiler" num="1016" delta="unknown" >"/home/ise/Documents/CPU/Verilog-CPU/CPU/TB_CPU.v" Line 24: Port <arg fmt="%s" index="1">READ_ENABLE</arg> is not connected to this instance
 </msg>
 
 </messages>

@@ -6,19 +6,22 @@
 // 	conditional branches. Control transfer instructions in RV32I do not have architecturally visible delay slots.
 //////////////////////////////////////////////////////////////////////////////////
 module br(
-	input [2:0] BRUOP, // BEQ, BNE ....
+	input [3:0] BRUOP, // BEQ, BNE ....
 	input aluEQ,
 	input aluLT, 
+	input aluLTU,
 	output doBranch	 
  );
 	 
-parameter [2:0] EQ = 0,
+parameter [3:0] EQ = 0,
 					 NE = 1, 
 					 LT = 2,
 					 GE = 3,
 					 JAL = 4,
 					 JALR = 5,
-					 OFF = 9;
+					 LTU = 6,
+					 GEU = 7,
+					 OFF = 8;
 
 // Jump instructions: 	JAL: rd = pc + 4, pc = pc + signext(imm)
 // 							JALR: rd = pc + 4, pc = rs1 + signext(imm)	
@@ -32,6 +35,8 @@ parameter [2:0] EQ = 0,
 							(BRUOP == NE) ? !aluEQ :
 							(BRUOP == LT) ? aluLT :
 							(BRUOP == GE) ? !aluLT :
+							(BRUOP == LT) ? aluLTU :
+							(BRUOP == GE) ? !aluLTU							:
 							(BRUOP == JAL) ? 1 :			// Can be routed in Control
 							(BRUOP == JALR) ? 1 : 
 							(BRUOP == OFF) ? 0 : 0;

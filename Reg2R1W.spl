@@ -1,6 +1,7 @@
 [Inputs]
 clk
 writeEnable
+mem_writeEnable
 rst
 =wrData[31:0]=
 =wrReg[4:0]=

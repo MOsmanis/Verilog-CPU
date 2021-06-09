@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 module imm32
 (
-	input  [31:7] in_imm,			// 25 bit = 32 - OPCODE
+	input  [24:0] in_imm,			// 25 bit = 32 - OPCODE
 	input  [2:0]  imm_type,		// 
 	output [31:0] immediate	// 32 bit
 );

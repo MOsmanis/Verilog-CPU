@@ -1,5 +1,5 @@
 [Inputs]
-=in_imm[31:7]=
+=in_imm[24:0]=
 =imm_type[2:0]=
 [Outputs]
 =immediate[31:0]=
