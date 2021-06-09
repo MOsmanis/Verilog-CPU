@@ -7,7 +7,7 @@
 // \   \   \/     Version : 14.7
 //  \   \         Application : sch2hdl
 //  /   /         Filename : schematic.vf
-// /___/   /\     Timestamp : 06/09/2021 15:38:38
+// /___/   /\     Timestamp : 06/09/2021 20:52:35
 // \   \  /  \ 
 //  \___\/\___\ 
 //
@@ -24,23 +24,25 @@ module schematic(CLK,
                  MEM_INST, 
                  MEM_INST_ENB, 
                  MEM_LOAD, 
-                 READ_ENABLE, 
+                 MEM_WRITEENABLE, 
+                 READ_READY, 
                  RST, 
                  ADDR, 
                  MEM_ADDR, 
-                 MEM_STORE, 
-                 MEM_WRITE_ENABLE);
+                 MEM_OP, 
+                 MEM_STORE);
 
     input CLK;
     input [31:0] MEM_INST;
     input MEM_INST_ENB;
     input [31:0] MEM_LOAD;
-    input READ_ENABLE;
+    input MEM_WRITEENABLE;
+    input READ_READY;
     input RST;
    output [31:0] ADDR;
    output [15:0] MEM_ADDR;
+   output [1:0] MEM_OP;
    output [31:0] MEM_STORE;
-   output MEM_WRITE_ENABLE;
    
    wire [4:0] XLXN_4;
    wire [4:0] XLXN_5;
@@ -77,7 +79,7 @@ module schematic(CLK,
    
    assign ADDR[31:0] = ADDR_DUMMY[31:0];
    Reg2R1W  XLXI_9 (.clk(CLK), 
-                   .mem_writeEnable(READ_ENABLE), 
+                   .mem_writeEnable(MEM_WRITEENABLE), 
                    .readSelect1(XLXN_4[4:0]), 
                    .readSelect2(XLXN_5[4:0]), 
                    .rst(XLXN_112), 
@@ -166,6 +168,7 @@ module schematic(CLK,
    cu  XLXI_39 (.CLK(CLK), 
                .INST_ENB(MEM_INST_ENB), 
                .MEM_INST(MEM_INST[31:0]), 
+               .READ_READY(READ_READY), 
                .RST(RST), 
                .ALU_OPT(XLXN_60[3:0]), 
                .BR_OPT(XLXN_74[3:0]), 
@@ -173,7 +176,7 @@ module schematic(CLK,
                .IMM_TYPE(XLXN_50[2:0]), 
                .LSU_MUX_SELECT(XLXN_125[2:0]), 
                .LSU_OPT(XLXN_90[2:0]), 
-               .MEM_WRITE_ENB(MEM_WRITE_ENABLE), 
+               .MEM_OP(MEM_OP[1:0]), 
                .PC_CLK(XLXN_69), 
                .PC_MUX_SELECT(XLXN_119[2:0]), 
                .REG_ADR(XLXN_6[4:0]), 

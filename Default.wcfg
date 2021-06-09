@@ -3,56 +3,140 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/ise/Documents/CPU/Verilog-CPU/schematic_schematic_sch_tb_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD_CPU_TB_LCD_sch_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
+            <top_module name="CPU_TB_LCD_CPU_TB_LCD_sch_tb" />
             <top_module name="glbl" />
-            <top_module name="schematic_schematic_sch_tb" />
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="11" />
-   <wvobject fp_name="/schematic_schematic_sch_tb/ADDR" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">ADDR[31:0]</obj_property>
-      <obj_property name="ObjectShortName">ADDR[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_ADDR" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">MEM_ADDR[15:0]</obj_property>
-      <obj_property name="ObjectShortName">MEM_ADDR[15:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_STORE" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">MEM_STORE[31:0]</obj_property>
-      <obj_property name="ObjectShortName">MEM_STORE[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_WRITE_ENABLE" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">MEM_WRITE_ENABLE</obj_property>
-      <obj_property name="ObjectShortName">MEM_WRITE_ENABLE</obj_property>
-   </wvobject>
-   <wvobject fp_name="/schematic_schematic_sch_tb/CLK" type="logic" db_ref_id="1">
+   <WVObjectSize size="32" />
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/CLK" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">CLK</obj_property>
       <obj_property name="ObjectShortName">CLK</obj_property>
    </wvobject>
-   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_INST_ENB" type="logic" db_ref_id="1">
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/MEMORY" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MEMORY[0:31,31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEMORY[0:31,31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/REAL_CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">REAL_CLK</obj_property>
+      <obj_property name="ObjectShortName">REAL_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/READ_ENABLE" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">READ_ENABLE</obj_property>
+      <obj_property name="ObjectShortName">READ_ENABLE</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/MEM_INST_ENB" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">MEM_INST_ENB</obj_property>
       <obj_property name="ObjectShortName">MEM_INST_ENB</obj_property>
    </wvobject>
-   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_LOAD" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">MEM_LOAD[31:0]</obj_property>
-      <obj_property name="ObjectShortName">MEM_LOAD[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/schematic_schematic_sch_tb/READ_ENB" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">READ_ENB</obj_property>
-      <obj_property name="ObjectShortName">READ_ENB</obj_property>
-   </wvobject>
-   <wvobject fp_name="/schematic_schematic_sch_tb/RST" type="logic" db_ref_id="1">
-      <obj_property name="ElementShortName">RST</obj_property>
-      <obj_property name="ObjectShortName">RST</obj_property>
-   </wvobject>
-   <wvobject fp_name="/schematic_schematic_sch_tb/MEM_INST" type="array" db_ref_id="1">
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/MEM_INST" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">MEM_INST[31:0]</obj_property>
       <obj_property name="ObjectShortName">MEM_INST[31:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/schematic_schematic_sch_tb/UUT/XLXI_9/RF" type="array" db_ref_id="1">
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_9/RF" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">RF[0:31,31:0]</obj_property>
       <obj_property name="ObjectShortName">RF[0:31,31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_39/MEM_INST" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MEM_INST[31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_INST[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_39/INST_ENB" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">INST_ENB</obj_property>
+      <obj_property name="ObjectShortName">INST_ENB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_39/GLOBAL_RESET" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">GLOBAL_RESET</obj_property>
+      <obj_property name="ObjectShortName">GLOBAL_RESET</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_39/PC_CLK" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">PC_CLK</obj_property>
+      <obj_property name="ObjectShortName">PC_CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_34/LSUOP" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">LSUOP[2:0]</obj_property>
+      <obj_property name="ObjectShortName">LSUOP[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_34/inData_load" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inData_load[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inData_load[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_34/inData_store" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inData_store[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inData_store[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_34/inAddr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">inAddr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inAddr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_34/outAddr" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">outAddr[15:0]</obj_property>
+      <obj_property name="ObjectShortName">outAddr[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_34/outData_load" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">outData_load[31:0]</obj_property>
+      <obj_property name="ObjectShortName">outData_load[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_34/outData_store" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">outData_store[31:0]</obj_property>
+      <obj_property name="ObjectShortName">outData_store[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/MEMORY" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MEMORY[0:31,31:0]</obj_property>
+      <obj_property name="ObjectShortName">MEMORY[0:31,31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/ADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ADDR[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ADDR[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/MEM_ADDR" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">MEM_ADDR[15:0]</obj_property>
+      <obj_property name="ObjectShortName">MEM_ADDR[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_13/in_imm" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">in_imm[24:0]</obj_property>
+      <obj_property name="ObjectShortName">in_imm[24:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_13/imm_type" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">imm_type[2:0]</obj_property>
+      <obj_property name="ObjectShortName">imm_type[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_13/immediate" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">immediate[31:0]</obj_property>
+      <obj_property name="ObjectShortName">immediate[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_11/OP1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">OP1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">OP1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_11/OP2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">OP2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">OP2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_9/readSelect1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">readSelect1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">readSelect1[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_9/readData1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">readData1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readData1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_9/writeEnable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">writeEnable</obj_property>
+      <obj_property name="ObjectShortName">writeEnable</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_9/wrData" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wrData[31:0]</obj_property>
+      <obj_property name="ObjectShortName">wrData[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU_TB_LCD_CPU_TB_LCD_sch_tb/UUT/XLXI_5/UUT/XLXI_9/mem_writeEnable" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mem_writeEnable</obj_property>
+      <obj_property name="ObjectShortName">mem_writeEnable</obj_property>
    </wvobject>
 </wave_config>

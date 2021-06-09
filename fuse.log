@@ -1,4 +1,4 @@
-Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/ise/Documents/CPU/Verilog-CPU/schematic_schematic_sch_tb_isim_beh.exe -prj /home/ise/Documents/CPU/Verilog-CPU/schematic_schematic_sch_tb_beh.prj work.schematic_schematic_sch_tb work.glbl 
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib unisims_ver -lib unimacro_ver -lib xilinxcorelib_ver -o /home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD_CPU_TB_LCD_sch_tb_isim_beh.exe -prj /home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD_CPU_TB_LCD_sch_tb_beh.prj work.CPU_TB_LCD_CPU_TB_LCD_sch_tb work.glbl 
 ISim P.20131013 (signature 0xfbc00daa)
 Number of CPUs detected in this system: 1
 Turning on mult-threading, number of parallel sub-compilation jobs: 0 
@@ -16,12 +16,17 @@ Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/br32.v" into lib
 Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/alu.v" into library work
 Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/schematic.vf" into library work
 Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/TB_CPU.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/lcd.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU/char_mem.v" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD.vf" into library work
+Analyzing Verilog file "/home/ise/Documents/CPU/Verilog-CPU/TEST_CPU_LCD.v" into library work
 Analyzing Verilog file "/opt/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
 Starting static elaboration
-WARNING:HDLCompiler:1016 - "/home/ise/Documents/CPU/Verilog-CPU/CPU/TB_CPU.v" Line 24: Port READ_ENABLE is not connected to this instance
 Completed static elaboration
-Fuse Memory Usage: 95060 KB
-Fuse CPU Usage: 680 ms
+Fuse Memory Usage: 95196 KB
+Fuse CPU Usage: 690 ms
+Compiling module lcd
+Compiling module char_mem_default
 Compiling module Reg2R1W
 Compiling module alu
 Compiling module mux8
@@ -34,10 +39,12 @@ Compiling module pc4
 Compiling module pcsum
 Compiling module schematic
 Compiling module schematic_schematic_sch_tb
+Compiling module CPU_TB_LCD
+Compiling module CPU_TB_LCD_CPU_TB_LCD_sch_tb
 Compiling module glbl
 Time Resolution for simulation is 1ps.
-Compiled 13 Verilog Units
-Built simulation executable /home/ise/Documents/CPU/Verilog-CPU/schematic_schematic_sch_tb_isim_beh.exe
-Fuse Memory Usage: 98496 KB
-Fuse CPU Usage: 710 ms
-GCC CPU Usage: 320 ms
+Compiled 17 Verilog Units
+Built simulation executable /home/ise/Documents/CPU/Verilog-CPU/CPU_TB_LCD_CPU_TB_LCD_sch_tb_isim_beh.exe
+Fuse Memory Usage: 98580 KB
+Fuse CPU Usage: 720 ms
+GCC CPU Usage: 400 ms

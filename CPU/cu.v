@@ -21,7 +21,7 @@ module cu(
 	 //output CSR_DATA
 	 //output CSR_ADR
 	 output reg WRITE_ENB,
-	 output reg MEM_WRITE_ENB,
+	 output reg[1:0] MEM_OP,
 	 output reg GLOBAL_RESET,
 	 output reg [2:0] IMM_TYPE,
 	 output reg [2:0] RS1_MUX_SELECT,// 0 - REG_RS1 1 - PC_ADDR
@@ -30,53 +30,54 @@ module cu(
 	 output reg [2:0] LSU_MUX_SELECT,
 	 output reg [2:0] PC_MUX_SELECT //0 - +IMM 1 - ALU result(JALR)
 	 );
+	 reg WAIT_FOR_READ = 0;
+	 reg RST_DONE = 0;
+	 reg CAN_CONTINUE = 1;
+	 reg INST_FIN = 0;
 	 
 //send signal to all to initialize (global reset)
-always @ (RST) begin
+always @ (posedge CLK) begin
 	 if (RST) begin
 	 	GLOBAL_RESET = 1;
-		RST_DONE = 1;
 	 end else begin
 	 	GLOBAL_RESET = 0;
 	 end
-	 RST_DONE = 0;
+	 //RST_DONE = 0;
 end
 
-always @(posedge READ_READY or WAIT_FOR_READ) begin
-	if(WAIT_FOR_READ)
-		CAN_CONTINUE = 0;
-	if(READ_READY)
-		CAN_CONTINUE = 1;
-end
+//after loading data, wait for response
+//always @(posedge READ_READY) begin
+//		CAN_CONTINUE = 1;
+//end
 
 //regulates when can go to next command
-always @(posedge RST_DONE or CAN_CONTINUE or posedge INST_ENB or INST_FIN) begin
-	if (RST_DONE)
-		PC_CLK=1;
-	else if (CAN_CONTINUE && INST_FIN && INST_ENB==0)
-		PC_CLK=1;
-	else if(INST_ENB)
-		PC_CLK=0;
-	else 
-		PC_CLK=0;
-end
-
-always @(posedge RST or posedge INST_ENB or READ_READY) begin
-	if (READ_READY)
-		PC_CLK=1;
-	if (INST_ENB)
-		PC_CLK=0;
-	if (RST)
-		PC_CLK=1;
-		
+always @(posedge CLK) begin
+	if(INST_FIN) begin
+		if(MEM_OP == 2) begin
+			if(READ_READY)
+				PC_CLK = 1;
+			else
+				PC_CLK = 0;
+		end else begin
+			PC_CLK = 1;
+		end
+	end else if (RST) begin
+		PC_CLK = 1;
+	end else begin
+		PC_CLK = 0;
+	end
+	
+	//if((INST_FIN && (!WAIT_FOR_READ || CAN_CONTINUE)) || RST_DONE)
+	//	PC_CLK = 1;
+	//	else
+	//	PC_CLK = 0;
 end
 
 always  @(posedge INST_ENB) begin
-	 WAIT_FOR_READ = 0;
-	 INST_FIN = 0;
-	 PC_CLK=0;
+	 //WAIT_FOR_READ = 0;
+	 //INST_FIN = 0;
 	 WRITE_ENB = 0;
-	 MEM_WRITE_ENB=0;
+	 MEM_OP=0;
 	 BR_OPT=4'b1000;
 	 PC_MUX_SELECT = 0;
 	 begin
@@ -142,29 +143,51 @@ always  @(posedge INST_ENB) begin
 					endcase
 				  end
 			7'b0000011 : begin //LSU - 03
-					LSU_OPT = MEM_INST[14:12];//funct3
-					IMM_TYPE = 3'b000;
-					RS1_ADR = MEM_INST[19:15];
-					REG_ADR = MEM_INST[11:7];
-					//1. RS2_MUX for IMM
-					RS2_MUX_SELECT = 3'b001;
-					RS1_MUX_SELECT=0;
-					//2. ALU_OPT SUM
-					ALU_OPT = 0;
-					//3. ALU RESULT to LSU
-					LSU_MUX_SELECT = 0;
-					//4. REG MUX for LSU
-					REG_MUX_SELECT = 3'b001;
+					case (MEM_INST[14:12])//funct3
+						 3'b000 :begin 
+								LSU_OPT = 0;
+							end
+						 3'b001 :begin 
+								LSU_OPT = 1;
+							end
+						 3'b010 :begin 
+								LSU_OPT = 2;
+							end
+						 3'b100 :begin 
+								LSU_OPT = 3;
+							end
+						 3'b101 :begin 
+								LSU_OPT = 4;
+							end
+					endcase
+					begin 
+						IMM_TYPE = 3'b000;
+						RS1_ADR = MEM_INST[19:15];
+						REG_ADR = MEM_INST[11:7];
+						//1. RS2_MUX for IMM
+						RS2_MUX_SELECT = 3'b001;
+						RS1_MUX_SELECT=0;
+					end
+					
+					begin 
+						//2. ALU_OPT SUM
+						ALU_OPT = 0;
+						//3. ALU RESULT to LSU
+						LSU_MUX_SELECT = 0;
+						//4. REG MUX for LSU
+						REG_MUX_SELECT = 3'b001;
+					end
 					//5. READ_ENABLE will go straight to reg
-					WAIT_FOR_READ = 1;
+					MEM_OP = 2; // LOAD OP
 				  end
 			7'b0100011 : begin //LSU - 23
+					MEM_OP = 1;// has to be first to not start loading
 					IMM_TYPE = 3'b010; // s type
 					RS1_ADR = MEM_INST[19:15];
 					RS2_ADR = MEM_INST[24:20];
 					REG_ADR = MEM_INST[11:7];
 					RS2_MUX_SELECT = 3'b001;
-					RS1_MUX_SELECT=0;
+					RS1_MUX_SELECT = 0;
 					case (MEM_INST[14:12])//funct3
 						 3'b000 :begin 
 								LSU_OPT = 3'b101;
@@ -176,7 +199,6 @@ always  @(posedge INST_ENB) begin
 								LSU_OPT = 3'b111;
 							end
 					endcase
-					MEM_WRITE_ENB = 1;
 				  end
 			7'b0010011 : begin //ALU 13
 					RS1_ADR = MEM_INST[19:15];
@@ -322,7 +344,6 @@ always  @(posedge INST_ENB) begin
 				//nonexisting OP
 			end
 		endcase
-		
 		INST_FIN = 1;
 	end
 end

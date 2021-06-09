@@ -11,15 +11,17 @@ module schematic_schematic_sch_tb(
    reg CLK;
    reg MEM_INST_ENB;
    reg [31:0] MEM_LOAD;
-   reg READ_ENABLE;
    reg RST;
    reg [31:0] MEM_INST;
+	reg READ_READY;
+	reg MEM_WRITEENABLE;
 
 // Output
    wire [31:0] ADDR;
    wire [15:0] MEM_ADDR;
    wire [31:0] MEM_STORE;
-   wire MEM_WRITE_ENABLE;
+   wire [1:0] MEM_OP;
+	
 
 	reg [7:0] char;
 	
@@ -32,59 +34,63 @@ module schematic_schematic_sch_tb(
 		.CLK(CLK), 
 		.MEM_INST_ENB(MEM_INST_ENB), 
 		.ADDR(ADDR), 
-		.READ_ENABLE(READ_ENABLE),
 		.MEM_ADDR(MEM_ADDR), 
 		.MEM_LOAD(MEM_LOAD), 
 		.MEM_STORE(MEM_STORE),  
 		.RST(RST), 
-		.MEM_WRITE_ENABLE(MEM_WRITE_ENABLE), 
-		.MEM_INST(MEM_INST)
+		.MEM_OP(MEM_OP), 
+		.MEM_INST(MEM_INST),
+		.MEM_WRITEENABLE(MEM_WRITEENABLE),
+		.READ_READY(READ_READY)
    );
 // Initialize Inputs
 	 initial begin
 		CLK = 0; // for reg file
 		MEM_INST_ENB = 0; // start next instruction
 		MEM_LOAD = 0; 
-		READ_ENABLE = 0; //for load
 		MEM_INST = 0; //32 bits risc-v instruction
 		
 		//INIT TEST MEMORY
-		for(index = 0; index < 32; index = index + 1) 
-			MEMORY[index] <= 32'b0;
-		MEMORY[12'b00000010000] <= "   1";
-		MEMORY[0] <= {12'b000000011111,5'b11111, 3'b100,5'b11111,7'b0000011};//LBU for 8 bits?
-		MEMORY[4] <= {12'b000000000001,5'b11111, 3'b000,5'b11111,7'b0010011};//ADDI
-		MEMORY[8] <= {7'b0000000,5'b11111, 3'b000,5'b11111,7'b0100011};//SB?
+		for(index = 0; index < 31; index = index + 1) 
+			MEMORY[index] = 32'b0;
+			
+			
+		MEMORY[12'b00000011111] = { {24{1'b0}},"1"};//char to be incremented
+		MEMORY[0] = {12'b000000011111,5'b11111, 3'b100,5'b11111,7'b0000011};//LBU for 8 bits?
+		MEMORY[4] = {12'b000000000001,5'b11111, 3'b000,5'b11111,7'b0010011};//ADDI
+		MEMORY[8] = {7'b0000000,5'b11111, 3'b000,5'b11111,7'b0100011};//SB?
 		
 		
 		//GLOBAL RESET
 		RST = 1;
-		#1000 //wait for global reset
+		#100000; //wait for global reset
 		RST = 0;
 		//GET ADDRESS FROM PC
 		//MEM_INST and MEM_INST_ENB
+		MEM_INST = MEMORY[ADDR];
+		MEM_INST_ENB = 1;
 	end
 	always @(ADDR) begin
 		MEM_INST = MEMORY[ADDR];
 		MEM_INST_ENB = 1;
 		MEM_INST_ENB = 0;
 	end
-	always @(MEM_ADDR) begin
-		MEM_LOAD = MEMORY[MEM_ADDR];
-		READ_ENABLE = 1;
-		//wait till read?
-		#1000
-		READ_ENABLE = 0;
+	always @(MEM_OP) begin
+		if (MEM_OP == 1) 
+			MEMORY[MEM_ADDR] = MEM_STORE;
+		else if (MEM_OP == 2) begin
+			MEM_LOAD = MEMORY[MEM_ADDR];
+			MEM_WRITEENABLE = 1;
+			READ_READY = 1;
+		end
 	end
-	always @(posedge MEM_WRITE_ENABLE) begin
+			
 	
+	
+	always @(REAL_CLK) begin
+		CLK = REAL_CLK;
 	end
-	always @(posedge REAL_CLK or negedge REAL_CLK) begin
-			if(REAL_CLK > 0) begin
-				lcd_buffer = {" WORD Buffer!   -2nd line ch", MEMORY[12'b000000011111]};
-				CLK <= 1;
-			end else begin
-				CLK <= 0;
-			end
+	always @(posedge REAL_CLK) begin
+		lcd_buffer = {" WORD Buffer!   -2nd line ch   ", MEMORY[12'b000000011111]};
 	end
 endmodule

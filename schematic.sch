@@ -35,7 +35,6 @@
         <signal name="XLXN_105(31:0)" />
         <signal name="XLXN_106(31:0)" />
         <signal name="RST" />
-        <signal name="MEM_WRITE_ENABLE" />
         <signal name="XLXN_112" />
         <signal name="XLXN_119(2:0)" />
         <signal name="XLXN_120(2:0)" />
@@ -45,10 +44,11 @@
         <signal name="XLXN_125(2:0)" />
         <signal name="MEM_INST(31:0)" />
         <signal name="MEM_INST(31:7)" />
-        <signal name="READ_ENABLE" />
         <signal name="XLXN_126" />
         <signal name="XLXN_128" />
         <signal name="READ_READY" />
+        <signal name="MEM_OP(1:0)" />
+        <signal name="MEM_WRITEENABLE" />
         <port polarity="Input" name="CLK" />
         <port polarity="Input" name="MEM_INST_ENB" />
         <port polarity="Output" name="ADDR(31:0)" />
@@ -56,12 +56,12 @@
         <port polarity="Input" name="MEM_LOAD(31:0)" />
         <port polarity="Output" name="MEM_STORE(31:0)" />
         <port polarity="Input" name="RST" />
-        <port polarity="Output" name="MEM_WRITE_ENABLE" />
         <port polarity="Input" name="MEM_INST(31:0)" />
-        <port polarity="Input" name="READ_ENABLE" />
         <port polarity="Input" name="READ_READY" />
+        <port polarity="Output" name="MEM_OP(1:0)" />
+        <port polarity="Input" name="MEM_WRITEENABLE" />
         <blockdef name="Reg2R1W">
-            <timestamp>2021-6-9T7:31:22</timestamp>
+            <timestamp>2021-6-9T20:48:48</timestamp>
             <line x2="0" y1="32" y2="32" x1="64" />
             <line x2="0" y1="-416" y2="-416" x1="64" />
             <line x2="0" y1="-352" y2="-352" x1="64" />
@@ -78,7 +78,7 @@
             <line x2="480" y1="-416" y2="-416" x1="416" />
             <rect width="64" x="416" y="-44" height="24" />
             <line x2="480" y1="-32" y2="-32" x1="416" />
-            <rect width="352" x="64" y="-448" height="512" />
+            <rect width="352" x="64" y="-448" height="576" />
         </blockdef>
         <blockdef name="alu">
             <timestamp>2021-6-9T6:37:36</timestamp>
@@ -141,10 +141,11 @@
             <line x2="384" y1="-224" y2="-224" x1="320" />
         </blockdef>
         <blockdef name="cu">
-            <timestamp>2021-6-9T16:42:51</timestamp>
+            <timestamp>2021-6-9T20:30:24</timestamp>
+            <rect width="64" x="416" y="980" height="24" />
+            <line x2="480" y1="992" y2="992" x1="416" />
             <line x2="0" y1="800" y2="800" x1="64" />
             <line x2="0" y1="608" y2="608" x1="64" />
-            <line x2="480" y1="544" y2="544" x1="416" />
             <line x2="480" y1="608" y2="608" x1="416" />
             <rect width="64" x="416" y="148" height="24" />
             <line x2="480" y1="160" y2="160" x1="416" />
@@ -176,7 +177,7 @@
             <line x2="480" y1="-96" y2="-96" x1="416" />
             <rect width="64" x="416" y="-44" height="24" />
             <line x2="480" y1="-32" y2="-32" x1="416" />
-            <rect width="352" x="64" y="-640" height="1472" />
+            <rect width="352" x="64" y="-640" height="1664" />
         </blockdef>
         <blockdef name="br">
             <timestamp>2021-6-9T7:56:19</timestamp>
@@ -234,7 +235,7 @@
             <blockpin signalname="XLXN_5(4:0)" name="readSelect2(4:0)" />
             <blockpin signalname="XLXN_62(31:0)" name="readData1(31:0)" />
             <blockpin signalname="XLXN_61(31:0)" name="readData2(31:0)" />
-            <blockpin signalname="READ_ENABLE" name="mem_writeEnable" />
+            <blockpin signalname="MEM_WRITEENABLE" name="mem_writeEnable" />
         </block>
         <block symbolname="alu" name="XLXI_11">
             <blockpin signalname="XLXN_68(31:0)" name="OP1(31:0)" />
@@ -337,10 +338,10 @@
             <blockpin signalname="MEM_INST_ENB" name="INST_ENB" />
             <blockpin signalname="CLK" name="CLK" />
             <blockpin signalname="RST" name="RST" />
+            <blockpin signalname="READ_READY" name="READ_READY" />
             <blockpin signalname="MEM_INST(31:0)" name="MEM_INST(31:0)" />
             <blockpin signalname="XLXN_69" name="PC_CLK" />
             <blockpin signalname="XLXN_7" name="WRITE_ENB" />
-            <blockpin signalname="MEM_WRITE_ENABLE" name="MEM_WRITE_ENB" />
             <blockpin signalname="XLXN_112" name="GLOBAL_RESET" />
             <blockpin signalname="XLXN_4(4:0)" name="RS1_ADR(4:0)" />
             <blockpin signalname="XLXN_5(4:0)" name="RS2_ADR(4:0)" />
@@ -354,7 +355,7 @@
             <blockpin signalname="XLXN_120(2:0)" name="REG_MUX_SELECT(2:0)" />
             <blockpin signalname="XLXN_125(2:0)" name="LSU_MUX_SELECT(2:0)" />
             <blockpin signalname="XLXN_119(2:0)" name="PC_MUX_SELECT(2:0)" />
-            <blockpin signalname="READ_READY" name="READ_READY" />
+            <blockpin signalname="MEM_OP(1:0)" name="MEM_OP(1:0)" />
         </block>
         <block symbolname="pc4" name="XLXI_42">
             <blockpin signalname="ADDR(31:0)" name="pc(31:0)" />
@@ -570,10 +571,6 @@
             <wire x2="2976" y1="4544" y2="4544" x1="2944" />
         </branch>
         <iomarker fontsize="28" x="2944" y="4544" name="RST" orien="R180" />
-        <branch name="MEM_WRITE_ENABLE">
-            <wire x2="3488" y1="4480" y2="4480" x1="3456" />
-        </branch>
-        <iomarker fontsize="28" x="3488" y="4480" name="MEM_WRITE_ENABLE" orien="R0" />
         <branch name="XLXN_112">
             <wire x2="1936" y1="2416" y2="2416" x1="1840" />
             <wire x2="1840" y1="2416" y2="2992" x1="1840" />
@@ -642,12 +639,6 @@
             <wire x2="2592" y1="3552" y2="3808" x1="2592" />
         </branch>
         <iomarker fontsize="28" x="2464" y="3904" name="MEM_INST(31:0)" orien="R180" />
-        <branch name="READ_ENABLE">
-            <wire x2="3680" y1="2048" y2="2384" x1="3680" />
-            <wire x2="3696" y1="2384" y2="2384" x1="3680" />
-            <wire x2="3856" y1="2048" y2="2048" x1="3680" />
-        </branch>
-        <iomarker fontsize="28" x="3856" y="2048" name="READ_ENABLE" orien="R0" />
         <branch name="XLXN_126">
             <wire x2="5712" y1="1680" y2="1680" x1="3360" />
             <wire x2="5712" y1="1680" y2="2624" x1="5712" />
@@ -682,5 +673,14 @@
             <wire x2="2976" y1="4736" y2="4736" x1="2944" />
         </branch>
         <iomarker fontsize="28" x="2944" y="4736" name="READ_READY" orien="R180" />
+        <branch name="MEM_OP(1:0)">
+            <wire x2="3488" y1="4928" y2="4928" x1="3456" />
+        </branch>
+        <iomarker fontsize="28" x="3488" y="4928" name="MEM_OP(1:0)" orien="R0" />
+        <branch name="MEM_WRITEENABLE">
+            <wire x2="3680" y1="2016" y2="2384" x1="3680" />
+            <wire x2="3696" y1="2384" y2="2384" x1="3680" />
+        </branch>
+        <iomarker fontsize="28" x="3680" y="2016" name="MEM_WRITEENABLE" orien="R270" />
     </sheet>
 </drawing>
