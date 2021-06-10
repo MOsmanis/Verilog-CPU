@@ -1,0 +1,37 @@
+NET "clk" LOC = "C9"  | IOSTANDARD = LVCMOS33 ;  
+#Define clock period for 50 MHz oscillator (40%/60% duty-cycle) 
+NET "clk" PERIOD = 20.0ns HIGH 40%;
+
+NET "SW0"  LOC = "L13" | IOSTANDARD = LVTTL | PULLUP ; 
+NET "SW1"  LOC = "L14" | IOSTANDARD = LVTTL | PULLUP ; 
+NET "SW2"  LOC = "H18" | IOSTANDARD = LVTTL | PULLUP ; 
+NET "SW3"  LOC = "N17" | IOSTANDARD = LVTTL | PULLUP ;
+
+NET "LED7"  LOC = "F9"  | IOSTANDARD = LVTTL  | SLEW = SLOW  | DRIVE = 8 ;
+
+NET "BTN_WEST" LOC = "D18" | IOSTANDARD = LVTTL  | PULLDOWN ;
+
+CONFIG PROHIBIT = D2; 
+CONFIG PROHIBIT = G4; 
+CONFIG PROHIBIT = J6; 
+CONFIG PROHIBIT = L5; 
+CONFIG PROHIBIT = R4;
+
+NET "spi_mosi"     LOC = "T4"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+NET "dac_cs"       LOC = "N8"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+NET "spi_sck"      LOC = "U16" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+NET "spi_miso"     LOC = "N10" | IOSTANDARD = LVCMOS33;
+
+NET "spi_amp_cs"   LOC = "N7"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+NET "spi_adc_conv" LOC = "P11" | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+
+NET "spi_rom_cs"   LOC = "U3"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+NET "spi_amp_shdn" LOC = "P7"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+NET "dac_clr"      LOC = "P8"  | IOSTANDARD = LVCMOS33 | SLEW = SLOW | DRIVE = 8;
+
+
+NET "strataflash_oe" LOC = "C18" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "strataflash_ce" LOC = "D16" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+NET "strataflash_we" LOC = "D17" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
+
+NET "platformflash_oe" LOC = "T3" | IOSTANDARD = LVTTL | SLEW = SLOW | DRIVE = 2;
